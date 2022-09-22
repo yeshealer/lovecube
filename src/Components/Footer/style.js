@@ -17,5 +17,5 @@ export const LogoTitle = wrapn('p')`
 `
 
 export const FooterLink = wrapn('div')`
-    w-full flex justify-between border-t border-black p-5
+    w-full flex justify-between border-t border-grey p-5 mt-5
 `
