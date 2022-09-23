@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
 import { Body, Content, LogoSection, LogoTitle, Navbar, CreateBtn } from "./style";
 import { Flex } from "../Gadgets/GlobalComponents";
 import { HeaderGroup } from "../Gadgets/Constants";
 
 const Header = () => {
+    const navigate = useNavigate()
     return (
         <Body>
             <Content>
@@ -12,14 +14,14 @@ const Header = () => {
                     <LogoTitle>LoveCube</LogoTitle>
                 </LogoSection>
                 <Flex>
-                    <Flex>
+                    <Flex className="hidden lg:flex">
                         {HeaderGroup.map(header => {
                             return (
-                                <Navbar key={header}>{header}</Navbar>
+                                <Navbar key={header.name} onClick={() => navigate(header.link)}>{header.name}</Navbar>
                             )
                         })}
                     </Flex>
-                    <CreateBtn>Create Yours Now</CreateBtn>
+                    <CreateBtn className="hidden lg:block">Create Yours Now</CreateBtn>
                 </Flex>
             </Content>
         </Body>

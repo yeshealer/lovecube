@@ -4,7 +4,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { Home } from './Views'
+import { Home, About } from './Views'
 import { Header, Footer } from './Components'
 import './App.css';
 
@@ -15,6 +15,7 @@ function App() {
       <Suspense>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Suspense>
       <Footer />

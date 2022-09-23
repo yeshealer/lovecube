@@ -18,7 +18,7 @@ const Footer = () => {
                     <img src="assets/image/logo.png" alt="logo" width={70} height={70} />
                     <LogoTitle>LoveCube</LogoTitle>
                 </LogoSection>
-                <Stock className="text-xl mt-3"><i>As unique and special as your relationship.</i></Stock>
+                <Stock className="text-lg sm:text-xl mt-3"><i>As unique and special as your relationship.</i></Stock>
                 <Flex className="gap-3">
                     <Player
                         autoplay
@@ -35,13 +35,13 @@ const Footer = () => {
                 </Flex>
                 <FooterLink>
                     <Stock>©Copyright <b>Joe Joe Industries, LLC.</b> All Rights Reserved</Stock>
-                    <Flex className="gap-4">
+                    <Stock className="block mt-5 sm:mt-0 sm:flex gap-4">
                         {FooterLinks.map((footerLink, index) => {
                             return (
-                                <Stock>{footerLink}</Stock>
+                                <Stock className="text-green-700" key={'footerLink' + index}>{footerLink}</Stock>
                             )
                         })}
-                    </Flex>
+                    </Stock>
                 </FooterLink>
             </Content>
         </Body>
