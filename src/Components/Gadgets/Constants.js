@@ -1,7 +1,7 @@
 export const HeaderGroup = [
     { name: 'Home', link: '/' },
     { name: 'About', link: '/about' },
-    { name: 'Contact us', link: '/contactus' },
+    { name: 'Contact us', link: '/contact' },
     { name: 'FAQ', link: '/faq' },
     { name: 'Occasions', link: '/occasion' },
     { name: 'My LoveCube(s)', link: '/decks' }
