@@ -3,7 +3,7 @@ export const HeaderGroup = [
     { name: 'About', link: '/about' },
     { name: 'Contact us', link: '/contact' },
     { name: 'FAQ', link: '/faq' },
-    { name: 'Occasions', link: '/occasion' },
+    { name: 'Occasions', link: '/' },
     { name: 'My LoveCube(s)', link: '/decks' }
 ]
 
@@ -100,4 +100,35 @@ export const AboutQuestion = [
     'Can I be confident buying a romantic gift online?',
     'Will I get the gift in time?',
     'Can this company be trusted?'
+]
+
+export const FAQ = [
+    {
+        question: 'How soon will I receive my LoveCube?',
+        answer: 'Generally within a week or less. We print and assemble the cubes Monday through Friday (except holidays) and ship by priority express mail which takes 2 - 3 days. All cubes are printed and assembled in, and shipped from, Chattanooga, TN, USA.'
+    },
+    {
+        question: 'What are the individual cards like?',
+        answer: "Each card is four inches square. The message is printed on one side, and a photo you've uploaded on the other. If you choose not to upload a photo for that message, the LoveCube logo (a box with hearts; no words) will appear on the other side. The card stock is bright white 100lb weight in an uncoated finish. While it is NOT photo paper (it's not glossy), your photos will still look great."
+    },
+    {
+        question: "Can I edit the messages after they've been generated?",
+        answer: 'Yes - in fact, we encourage it! The generated messages can be used "as is" or customized by you. You can even completely delete any of the messages and replace them with your own words.'
+    },
+    {
+        question: 'How many cards come in a LoveCube?',
+        answer: "We create 60 cards with messages. You can delete some if you'd like, and you can add photos to any of them, or all 60!"
+    },
+    {
+        question: 'What is the gift box like?',
+        answer: "The high-quality gift box has been custom designed and manufactured to hold about 60 cards. It is a red color, rigid, and has a magnetic clasp. The LoveCube logo appears on the top; there isn't any other text on the inside or outside of the box itself."
+    },
+    {
+        question: 'What payment methods are accepted?',
+        answer: "We accept payments from Discover, Mastercard, Visa or American Express cards."
+    },
+    {
+        question: 'Can I start a LoveCube on my phone and then finish on my laptop?',
+        answer: "Yes, absolutely. You were sent an email with a link to get back to your LoveCube when you first provided your email. Click on that link from whatever device you wish to work from, and you will be taken back to your LoveCube."
+    }
 ]

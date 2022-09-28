@@ -13,5 +13,5 @@ export const SubTitle = wrapn('div')`
 `
 
 export const Content = wrapn('div')`
-    w-full max-w-7xl
+    w-full max-w-6xl flex flex-col xl:flex-row gap-10 items-center p-3
 `
