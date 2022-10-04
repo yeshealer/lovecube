@@ -1,11 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router-dom'
-import emailjs from '@emailjs/browser';
 
 export default function SendMail(props) {
     const navigate = useNavigate()
-    const mainContent = useRef()
 
     const [isRequired, setIsRequired] = useState(false)
 
@@ -29,19 +27,8 @@ export default function SendMail(props) {
         }
     }
 
-
-    const sendEmail = (e) => {
-        e.preventDefault();
-
-        emailjs.sendForm('service_pn09oep', 'template_44pzhd1', mainContent.current, 'XZf5ifDKJM2Li_XL-')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
-    };
-
     const handleNextFromWho = () => {
+
     }
 
     useEffect(() => {
@@ -160,22 +147,6 @@ export default function SendMail(props) {
                     <button className='text-[#6c757d] mt-2 hover:underline'>Continue without email</button>
                 </div>
             </div>
-
-            <form ref={mainContent} onSubmit={sendEmail}>
-                <div>
-                    <label>Name</label>
-                    <input type="text" name="user_name" />
-                </div>
-                <div>
-                    <label>Email</label>
-                    <input type="email" name="user_email" />
-                </div>
-                <div>
-                    <label>Message</label>
-                    <textarea name="message" />
-                </div>
-                <button type="submit">Send</button>
-            </form>
         </div>
     )
 }
