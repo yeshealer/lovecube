@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router-dom'
+import emailjs from '@emailjs/browser';
 
 export default function SendMail(props) {
     const navigate = useNavigate()
+    const mainContent = useRef()
 
     const [isRequired, setIsRequired] = useState(false)
 
@@ -27,8 +29,19 @@ export default function SendMail(props) {
         }
     }
 
-    const handleNextFromWho = () => {
 
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_pn09oep', 'template_44pzhd1', mainContent.current, 'XZf5ifDKJM2Li_XL-')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+
+    const handleNextFromWho = () => {
     }
 
     useEffect(() => {
@@ -141,12 +154,28 @@ export default function SendMail(props) {
 
                 <div className='flex flex-col items-center justify-center w-full'>
                     <button type="button" class={`font-bold text-white ${!isRequired ? "bg-[#9a1f60] hover:bg-[#AA2F60] focus:ring-rose-200" : "bg-[#3e9ca3] hover:bg-[#4e9ca3] focus:ring-green-200"} focus:ring-2 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mt-10 ${isRequired && 'next-button-animation'}`} onClick={() => handleNextFromWho()}>
-                        Next
+                        Send
                         <Icon icon="akar-icons:arrow-right" width={20} height={20} className="ml-1" />
                     </button>
                     <button className='text-[#6c757d] mt-2 hover:underline'>Continue without email</button>
                 </div>
             </div>
+
+            <form ref={mainContent} onSubmit={sendEmail}>
+                <div>
+                    <label>Name</label>
+                    <input type="text" name="user_name" />
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" name="user_email" />
+                </div>
+                <div>
+                    <label>Message</label>
+                    <textarea name="message" />
+                </div>
+                <button type="submit">Send</button>
+            </form>
         </div>
     )
 }
