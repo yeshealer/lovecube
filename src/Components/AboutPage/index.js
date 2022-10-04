@@ -20,7 +20,7 @@ export default function AboutPage() {
         <Stock className='flex flex-col items-start w-full md:w-2/5 mt-5 md:mt-0'>
           {AboutQuestion.map(question => {
             return (
-              <Flex className='gap-3'>
+              <Flex className='gap-3' key={question}>
                 <Stock className='w-3 h-3 rounded-full bg-[#3e9ca3]' />
                 <Stock className='text-base lg:text-base xl:text-xl leading-7 xl:leading-9'>{question}</Stock>
               </Flex>

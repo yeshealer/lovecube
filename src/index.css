@@ -15,6 +15,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.next-button-animation {
+  animation: shakeAnimation 2s infinite;
+}
+
+@keyframes shakeAnimation {
+  
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

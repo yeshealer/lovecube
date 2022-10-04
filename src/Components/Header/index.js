@@ -1,30 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Icon } from '@iconify/react';
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Modal } from 'react-responsive-modal';
 import { Body, Content, LogoSection, LogoTitle, Navbar, CreateBtn } from "./style";
 import { Flex } from "../Gadgets/GlobalComponents";
 import { HeaderGroup } from "../Gadgets/Constants";
 
 const Header = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
+    const [isShow, setIsShow] = useState(true)
+
+    useEffect(() => {
+        if (location.pathname.includes('create-deck')) {
+            setIsShow(false)
+        } else {
+            setIsShow(true)
+        }
+    }, [location, location.pathname])
+
     const [open, setOpen] = useState(false);
 
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);
 
-
     const closeIcon = (
         <Icon icon="eva:close-circle-outline" width="30" height="30" />
     )
-    const navigate = useNavigate()
     return (
         <Body>
             <Content>
-                <LogoSection>
-                    <img src="assets/image/logo.png" alt="logo" width={40} height={40} />
+                <LogoSection onClick={() => navigate('/')}>
+                    <img src="assets/image/logo.png" alt="logo" width={40} height={40} draggable={false} />
                     <LogoTitle>LoveCube</LogoTitle>
                 </LogoSection>
-                <Flex>
+                {isShow && <Flex>
                     <Flex className="hidden lg:flex">
                         {HeaderGroup.map(header => {
                             return (
@@ -33,7 +43,7 @@ const Header = () => {
                         })}
                     </Flex>
                     <CreateBtn className="hidden lg:block">Create Yours Now</CreateBtn>
-                </Flex>
+                </Flex>}
                 <div className='bg-transparent hover:bg-[#FFFFFF30] rounded-md transition-all duration-500 block p-1 cursor-pointer lg:hidden' onClick={() => onOpenModal()}>
                     <Icon icon="entypo:menu" className='w-[25px] md:w-[30px] h-[25px] md:h-[30px] text-black' />
                 </div>

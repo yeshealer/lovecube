@@ -39,7 +39,7 @@ export default function ImageCarousel() {
             >
                 {CreateSlider.map((slider, i) => {
                     return (
-                        <img src={slider} alt={"slider-image" + i} className='w-[360px] h-[360px] bg-slate-300 rounded-xl' draggable={false} />
+                        <img src={slider} alt={"slider-image" + i} className='w-[360px] h-[360px] bg-slate-300 rounded-xl' draggable={false} key={i} />
                     )
                 })}
             </Carousel>

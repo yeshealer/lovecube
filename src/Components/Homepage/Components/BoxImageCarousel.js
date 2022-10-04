@@ -37,7 +37,7 @@ export default function BoxImageCarousel() {
             >
                 {GuideSlider.map((slider, i) => {
                     return (
-                        <img src={slider} alt={"guide-slider" + i} className='w-[360px] h-[360px] bg-slate-300 rounded-xl' draggable={false} />
+                        <img src={slider} alt={"guide-slider" + i} className='w-[360px] h-[360px] bg-slate-300 rounded-xl' draggable={false} key={i} />
                     )
                 })}
             </Carousel>

@@ -4,7 +4,13 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { Home, About, Contact, FAQ } from './Views'
+import {
+  Home,
+  About,
+  Contact,
+  FAQ,
+  CreateDeck
+} from './Views'
 import { Header, Footer } from './Components'
 
 function App() {
@@ -17,6 +23,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/create-deck/:id/:id" element={<CreateDeck />} />
         </Routes>
       </Suspense>
       <Footer />

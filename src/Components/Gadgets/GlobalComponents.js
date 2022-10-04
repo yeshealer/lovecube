@@ -10,4 +10,6 @@ export const FlexDiv = wrapn('div')`
     flex flex-col items-center justify-center
 `
 
-export const Button = wrapn('button')``
+export const Button = wrapn('button')`
+    
+`

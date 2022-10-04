@@ -9,7 +9,7 @@ export const Content = wrapn('div')`
 `
 
 export const LogoSection = wrapn('div')`
-    flex items-center
+    flex items-center cursor-pointer
 `
 
 export const LogoTitle = wrapn('p')`
