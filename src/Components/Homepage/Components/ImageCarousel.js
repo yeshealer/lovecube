@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Icon } from '@iconify/react';
 import Carousel from "react-multi-carousel";
+import { useNavigate } from 'react-router-dom';
+import { Modal } from 'react-responsive-modal';
 import { ImageCarouselContent } from '../style'
 import { Stock, Button } from '../../Gadgets/GlobalComponents'
 import { CreateSlider } from '../../Gadgets/Constants';
+import { ButtonGroup } from '../../Gadgets/Constants';
 
 export default function ImageCarousel() {
+    const navigate = useNavigate()
+    const [createModalOpen, setCreateModalOpen] = useState(false);
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1280 },
@@ -23,6 +28,13 @@ export default function ImageCarousel() {
             slidesToSlide: 1
         }
     };
+
+    const onOpenCreateModal = () => setCreateModalOpen(true);
+    const onCloseCreateModal = () => setCreateModalOpen(false);
+
+    const CreateModalCloseIcon = (
+        <Icon icon="ci:close-small" width="30" height="30" color="#808080" />
+    )
     return (
         <ImageCarouselContent>
             <Carousel
@@ -54,10 +66,33 @@ export default function ImageCarousel() {
                     Click below to start your personalized love letter today.
                 </Stock>
             </Stock>
-            <Button className="flex items-center gap-3 bg-[#3e9ca3] text-white px-5 py-3 text-2xl text-semibold rounded-lg shadow-xl mt-8">
+            <Button className="flex items-center gap-3 bg-[#3e9ca3] text-white px-5 py-3 text-2xl text-semibold rounded-lg shadow-xl mt-8" onClick={() => onOpenCreateModal()}>
                 Create Yours Now
                 <Icon icon="akar-icons:arrow-right" />
             </Button>
+            <Modal
+                open={createModalOpen}
+                onClose={onCloseCreateModal}
+                center
+                classNames={{
+                    modal: 'w-auto rounded-xl'
+                }}
+                closeIcon={CreateModalCloseIcon}
+            >
+                <div className='flex flex-col w-full py-3 px-7'>
+                    <div className="flex flex-col items-center">
+                        <img src="assets/image/logo.png" alt="logo" width={50} height={50} draggable={false} />
+                        <div className="text-3xl mt-2 text-[#212529]">Who is this for?</div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 mt-5">
+                        {ButtonGroup.map((button) => {
+                            return (
+                                <button className="text-white text-lg bg-[#3e9ca3] rounded-lg w-[200px] p-2" key={button} onClick={() => navigate(`/create-deck/${button.toLowerCase()}/to-who`)}>{button}</button>
+                            )
+                        })}
+                    </div>
+                </div>
+            </Modal>
         </ImageCarouselContent>
     )
 }

@@ -15,13 +15,16 @@ export default function CreateCard(props) {
         inscription,
         pathname,
         selectedDescribe,
-        moreOption
+        moreOption,
+        setTopCardImage
     } = props
+
     const imageURI = useImageURI(
         occasion,
         toFirstName,
         inscription
     )
+    setTopCardImage(imageURI)
 
     const handleNextCreateCard = () => {
         navigate(`/create-deck/${pathname}/upload`)

@@ -28,6 +28,7 @@ export default function CreateDeckPage() {
     const [toFirstName, setToFirstName] = useState('')
     const [toLastName, setToLastName] = useState('')
     const [toNickName, setToNickName] = useState('')
+    const [topCardImage, setTopCardImage] = useState('')
     const [fromFirstName, setFromFirstName] = useState('')
     const [fromLastName, setFromLastName] = useState('')
     const [fromNickName, setFromNickName] = useState('')
@@ -90,6 +91,7 @@ export default function CreateDeckPage() {
                     pathname={mainPathname}
                     selectedDescribe={selectedDescribe}
                     moreOption={moreOption}
+                    setTopCardImage={setTopCardImage}
                 />}
                 {subPathname === 'upload' && <UploadImage
                     toFirstName={toFirstName}
@@ -126,14 +128,20 @@ export default function CreateDeckPage() {
                 />}
                 {subPathname === 'send-mail' && <SendMail
                     toFirstName={toFirstName}
+                    toLastName={toLastName}
+                    toNickName={toNickName}
                     occasion={occasion}
                     inscription={inscription}
-                    pathname={mainPathname}
+                    topCardImage={topCardImage}
+                    ownMessage={ownMessage}
                     selectedDescribe={selectedDescribe}
                     moreOption={moreOption}
                     fromFirstName={fromFirstName}
+                    fromLastName={fromLastName}
+                    fromNickName={fromNickName}
                     setSendMail={setSendMail}
                     sendMail={sendMail}
+                    pathname={mainPathname}
                 />}
             </Content>
         </CreateDeckBody>
