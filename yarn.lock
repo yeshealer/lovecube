@@ -1082,18 +1082,6 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bedrock-layout/use-forwarded-ref@^1.1.4":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@bedrock-layout/use-forwarded-ref/-/use-forwarded-ref-1.6.0.tgz#efd33df912b7d5c91de2da976b780257b6032e99"
-  integrity sha512-6O4uqkoogYQYT8Vx0HEmusrdxvIgj9/dhFQzPrCWzA87A3yzD+Jr1uVgoyt7VJe86X82NLRyP9XBx957W3Lnkw==
-  dependencies:
-    "@bedrock-layout/use-stateful-ref" "^1.4.0"
-
-"@bedrock-layout/use-stateful-ref@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@bedrock-layout/use-stateful-ref/-/use-stateful-ref-1.4.0.tgz#33ee6201421b06cac420ec89f1cd7b1c3c76dd52"
-  integrity sha512-olGeFJwOCx38+qNsJ2AHm4IFYqFtD5JMcQkUW9VICxlFzmodfP/tTiqhcFbSfUc/62Qz7iQ2bp5eG+ptT2sDGA==
-
 "@csstools/normalize.css@*":
   version "12.0.0"
   resolved "https://registry.npmjs.org/@csstools/normalize.css/-/normalize.css-12.0.0.tgz"
@@ -3016,11 +3004,6 @@ body-parser@1.20.0:
     type-is "~1.6.18"
     unpipe "1.0.0"
 
-body-scroll-lock@^3.1.5:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-3.1.5.tgz#c1392d9217ed2c3e237fee1e910f6cdd80b7aaec"
-  integrity sha512-Yi1Xaml0EvNA0OYWxXiYNqY24AfWkbA6w5vxE7GWxtKfzIbZM+Qw+aSmkgsbWzbHiy/RCSkUZBplVxTA+E4jJg==
-
 bonjour-service@^1.0.11:
   version "1.0.14"
   resolved "https://registry.npmjs.org/bonjour-service/-/bonjour-service-1.0.14.tgz"
@@ -3230,11 +3213,6 @@ cjs-module-lexer@^1.0.0:
   version "1.2.2"
   resolved "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz"
   integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
-
-classnames@^2.2.6:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
-  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
 clean-css@^5.2.2:
   version "5.3.1"
@@ -7631,19 +7609,15 @@ react-player@^2.11.0:
     prop-types "^15.7.2"
     react-fast-compare "^3.0.1"
 
+react-pure-modal@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-pure-modal/-/react-pure-modal-2.2.0.tgz#08b47a626954e212734cfca57a4aa80a31d4caeb"
+  integrity sha512-YIXEPMnPnCaNDgVH2jwHabMUPEpeyKsSsH5j2UEV+ZPLRPFcmeLMS85M1iA08wfwps26kHCwVZmZQXg4laCZRw==
+
 react-refresh@^0.11.0:
   version "0.11.0"
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
-
-react-responsive-modal@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/react-responsive-modal/-/react-responsive-modal-6.2.0.tgz#339226b911d8ffaba4e0afce83387a65221b8e29"
-  integrity sha512-i3Or4ixdDnLOeZbOQltgayOj69zg6Pbd8IF+RMi6gG1hyZvXHL39QvMvXBuG7poEaBMHspXNDtCzbTBJpOmdfw==
-  dependencies:
-    "@bedrock-layout/use-forwarded-ref" "^1.1.4"
-    body-scroll-lock "^3.1.5"
-    classnames "^2.2.6"
 
 react-router-dom@^6.4.0:
   version "6.4.0"

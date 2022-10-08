@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import { Modal } from 'react-responsive-modal';
+import PureModal from 'react-pure-modal';
 import { PromotionDetailContent } from '../style'
 import { Flex, Stock, Button } from '../../Gadgets/GlobalComponents'
 import { PaymentImages } from '../../Gadgets/Constants'
 import { ButtonGroup } from '../../Gadgets/Constants';
+import 'react-pure-modal/dist/react-pure-modal.min.css';
 
 export default function Payment() {
     const navigate = useNavigate()
@@ -41,29 +42,35 @@ export default function Payment() {
                 Create Yours Now
                 <Icon icon="akar-icons:arrow-right" />
             </Button>
-            <Modal
-                open={createModalOpen}
-                onClose={onCloseCreateModal}
-                center
-                classNames={{
-                    modal: 'w-auto rounded-xl'
+            <PureModal
+                isOpen={createModalOpen}
+                closeButton={CreateModalCloseIcon}
+                closeButtonPosition="bottom"
+                onClose={() => {
+                    onCloseCreateModal();
+                    return true;
                 }}
-                closeIcon={CreateModalCloseIcon}
+                width="500px"
             >
-                <div className='flex flex-col w-full py-3 px-1 sm:px-3 md:px-7'>
+                <div className='flex flex-col w-full py-3 px-2 sm:px-7'>
                     <div className="flex flex-col items-center">
                         <img src="assets/image/logo.png" alt="logo" width={50} height={50} draggable={false} />
-                        <div className="text-2xl md:text-3xl mt-2 text-[#212529]">Who is this for?</div>
+                        <div className="text-3xl mt-2 text-[#212529]">Who is this for?</div>
                     </div>
                     <div className="grid grid-cols-2 gap-2 mt-5">
                         {ButtonGroup.map((button) => {
                             return (
-                                <button className="text-white text-base sm:text-lg bg-[#3e9ca3] rounded-lg w-[140px] sm:w-[200px] p-2" key={button} onClick={() => navigate(`/create-deck/${button.toLowerCase()}/to-who`)}>{button}</button>
+                                <div className="w-full flex justify-center">
+                                    <button className="text-white text-lg bg-[#3e9ca3] rounded-lg w-[160px] sm:w-[200px] p-2" key={button} onClick={() => {
+                                        navigate(`/create-deck/${button.toLowerCase()}/to-who`)
+                                        onCloseCreateModal()
+                                    }}>{button}</button>
+                                </div>
                             )
                         })}
                     </div>
                 </div>
-            </Modal>
+            </PureModal>
         </PromotionDetailContent>
     )
 }

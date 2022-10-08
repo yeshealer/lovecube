@@ -11,7 +11,7 @@ export default function FAQPage() {
     const navigate = useNavigate()
     return (
         <Body>
-            <HeaderTitle>About us</HeaderTitle>
+            <HeaderTitle>FAQ</HeaderTitle>
 
             <Stock className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full max-w-6xl p-5 gap-3'>
                 <Link to='shipping' className='cursor-pointer flex flex-col items-center text-[#3e9ca3] font-semibold gap-1 bg-[#EEFEFE] border border-[#EAEAFA] rounded-md'>
