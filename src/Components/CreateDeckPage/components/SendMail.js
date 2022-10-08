@@ -52,88 +52,90 @@ export default function SendMail(props) {
         <div className='flex flex-col items-start w-9/10 sm:w-3/4 md:w-1/2'>
             <div className='flex items-center gap-1 mt-7'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>This is for: </div>
-                <div className='text-base sm:text-lg md:text-xl'>{toFirstName}</div>
+                <div className='text-base text-[#6c757d]'>This is for: </div>
+                <div className='text-base'>{toFirstName}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/to-who`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Occasion: </div>
-                <div className='text-base sm:text-lg md:text-xl'>{occasion}</div>
+                <div className='text-base text-[#6c757d]'>Occasion: </div>
+                <div className='text-base'>{occasion}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/occasion`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Inscription: </div>
-                <div className='text-base sm:text-lg md:text-xl'>{inscription}</div>
+                <div className='text-base text-[#6c757d]'>Inscription: </div>
+                <div className={`text-base ${inscription.length > 18 && 'hidden sm:block'}`}>{inscription}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/inscription`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
+            <div className={`text-base ${inscription.length > 18 && 'block sm:hidden'} text-end w-full`}>{inscription}</div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Traits: </div>
-                <div className='text-base sm:text-lg md:text-xl'>{selectedDescribe.length} amazing traits</div>
+                <div className='text-base text-[#6c757d]'>Traits: </div>
+                <div className='text-base'>{selectedDescribe.length} amazing traits</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/describe`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>More Message: </div>
-                <div className='text-base sm:text-lg md:text-xl'>{moreOption}</div>
+                <div className='text-base text-[#6c757d]'>More Message: </div>
+                <div className={`text-base ${moreOption.length > 18 && 'hidden sm:block'}`}>{moreOption}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/more-option`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
+            <div className={`text-base ${moreOption.length > 18 && 'block sm:hidden'} text-end w-full`}>{moreOption}</div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-xl text-[#6c757d]'>Title card created</div>
+                <div className='text-base text-[#6c757d]'>Title card created</div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Final image: </div>
+                <div className='text-base text-[#6c757d]'>Final image: </div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/upload`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Message: </div>
+                <div className='text-base text-[#6c757d]'>Message: </div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/own-msg`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>This is from: </div>
-                <div className='text-base sm:text-lg md:text-xl'>{fromFirstName}</div>
+                <div className='text-base text-[#6c757d]'>This is from: </div>
+                <div className='text-base'>{fromFirstName}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/to-who`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
 
-            <div className='text-3xl my-8 text-center'>Just one more thing</div>
+            <div className='text-2xl md:text-3xl my-8 text-center'>Just one more thing</div>
 
             <div className='w-full'>
                 <div className='text-center text-[#6c757d]'>We need your email to save your LoveCube.</div>
