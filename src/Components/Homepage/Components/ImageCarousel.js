@@ -79,15 +79,15 @@ export default function ImageCarousel() {
                 }}
                 closeIcon={CreateModalCloseIcon}
             >
-                <div className='flex flex-col w-full py-3 px-7'>
+                <div className='flex flex-col w-full py-3 px-1 sm:px-3 md:px-7'>
                     <div className="flex flex-col items-center">
                         <img src="assets/image/logo.png" alt="logo" width={50} height={50} draggable={false} />
-                        <div className="text-3xl mt-2 text-[#212529]">Who is this for?</div>
+                        <div className="text-2xl md:text-3xl mt-2 text-[#212529]">Who is this for?</div>
                     </div>
                     <div className="grid grid-cols-2 gap-2 mt-5">
                         {ButtonGroup.map((button) => {
                             return (
-                                <button className="text-white text-lg bg-[#3e9ca3] rounded-lg w-[200px] p-2" key={button} onClick={() => navigate(`/create-deck/${button.toLowerCase()}/to-who`)}>{button}</button>
+                                <button className="text-white text-base sm:text-lg bg-[#3e9ca3] rounded-lg w-[140px] sm:w-[200px] p-2" key={button} onClick={() => navigate(`/create-deck/${button.toLowerCase()}/to-who`)}>{button}</button>
                             )
                         })}
                     </div>
