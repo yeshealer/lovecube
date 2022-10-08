@@ -55,45 +55,46 @@ export default function MoreOption(props) {
         <div className='flex flex-col items-start w-9/10 sm:w-2/3 md:w-1/2'>
             <div className='flex items-center gap-1 mt-7'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-lg md:text-xl text-[#6c757d]'>This is for: </div>
-                <div className='text-lg md:text-xl'>{toFirstName}</div>
+                <div className='text-base text-[#6c757d]'>This is for: </div>
+                <div className='text-base'>{toFirstName}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/to-who`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-lg md:text-xl text-[#6c757d]'>Occasion: </div>
-                <div className='text-lg md:text-xl'>{occasion}</div>
+                <div className='text-base text-[#6c757d]'>Occasion: </div>
+                <div className='text-base'>{occasion}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/occasion`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-lg md:text-xl text-[#6c757d]'>Inscription: </div>
-                <div className='text-lg md:text-xl'>{inscription}</div>
+                <div className='text-base text-[#6c757d]'>Inscription: </div>
+                <div className={`text-base ${inscription.length > 18 && 'hidden sm:block'}`}>{inscription}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/inscription`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
+            <div className={`text-base ${inscription.length > 18 && 'block sm:hidden'} text-end w-full`}>{inscription}</div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-lg md:text-xl text-[#6c757d]'>Traits: </div>
-                <div className='text-lg md:text-xl'>{selectedDescribe.length} amazing traits</div>
+                <div className='text-base text-[#6c757d]'>Traits: </div>
+                <div className='text-base'>{selectedDescribe.length} amazing traits</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/describe`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
 
-            <div className='text-3xl my-8'>Choose more inscription</div>
+            <div className='text-2xl md:text-3xl my-8'>Choose more inscription</div>
 
             <table class="w-full text-sm text-left text-gray-500 text-gray-400">
                 <tbody>

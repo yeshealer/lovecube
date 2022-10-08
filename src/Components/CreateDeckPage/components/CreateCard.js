@@ -53,13 +53,14 @@ export default function CreateCard(props) {
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Inscription: </div>
-                <div className='text-base sm:text-lg md:text-xl'>{inscription}</div>
+                <div className='text-base text-[#6c757d]'>Inscription: </div>
+                <div className={`text-base ${inscription.length > 18 && 'hidden sm:block'}`}>{inscription}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/inscription`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
+            <div className={`text-base ${inscription.length > 18 && 'block sm:hidden'} text-end w-full`}>{inscription}</div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
@@ -73,15 +74,16 @@ export default function CreateCard(props) {
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>More Message: </div>
-                <div className='text-base sm:text-lg md:text-xl'>{moreOption}</div>
+                <div className='text-base text-[#6c757d]'>More Message: </div>
+                <div className={`text-base ${moreOption.length > 18 && 'hidden sm:block'}`}>{moreOption}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/more-option`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
+            <div className={`text-base ${moreOption.length > 18 && 'block sm:hidden'} text-end w-full`}>{moreOption}</div>
 
-            <div className='text-3xl my-8'>Let's see the first card</div>
+            <div className='text-2xl md:text-3xl my-8'>Let's see the first card</div>
 
             <div className='text-center text-[#6c757d]'>
                 <div className='text-2xl'>Everything look good?</div>
