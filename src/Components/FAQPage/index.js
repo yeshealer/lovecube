@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { Body, HeaderTitle } from './style'
 import { Stock } from '../Gadgets/GlobalComponents'
 import { FAQ } from '../Gadgets/Constants';
-import 'react-responsive-modal/styles.css';
 
 export default function FAQPage() {
     const navigate = useNavigate()
