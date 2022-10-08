@@ -5,7 +5,7 @@ export const Body = wrapn('div')`
 `
 
 export const Content = wrapn('div')`
-    w-full flex items-center justify-between max-w-md sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl
+    w-full flex items-center justify-between max-w-md sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl px-4
 `
 
 export const LogoSection = wrapn('div')`

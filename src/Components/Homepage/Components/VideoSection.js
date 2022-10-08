@@ -25,13 +25,13 @@ export default function VideoSection() {
                     <Flex className="mt-10 text-stone-700">
                         <FlexDiv className="border-r border-[#3e9ca3] p-3 px-5 w-64">
                             <Icon icon="emojione-monotone:wrapped-gift" color="#9a1f60" width="35" height="35" />
-                            <Stock className="text-lg mt-3">More meaningful</Stock>
-                            <Stock className="text-lg">than flowers</Stock>
+                            <Stock className="text-sm sm:text-lg mt-3">More meaningful</Stock>
+                            <Stock className="text-sm sm:text-lg">than flowers</Stock>
                         </FlexDiv>
-                        <FlexDiv className="border-l border-[#3e9ca3] p-3 px-5 w-64">
+                        <FlexDiv className="border-l border-[#3e9ca3] p-3 px-1 sm:px-5 w-64">
                             <Icon icon="bx:happy-heart-eyes" color="#9a1f60" width="35" height="35" />
-                            <Stock className="text-lg mt-3">More memorable than</Stock>
-                            <Stock className="text-lg">a night on the town</Stock>
+                            <Stock className="text-sm sm:text-lg text-center mt-3">More memorable than</Stock>
+                            <Stock className="text-sm sm:text-lg text-center">a night on the town</Stock>
                         </FlexDiv>
                     </Flex>
                     <Flex className="mt-10">

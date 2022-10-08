@@ -30,36 +30,36 @@ export default function Describe(props) {
             <div className='w-9/10 sm:w-2/3 md:w-1/2'>
                 <div className='flex items-center gap-1 mt-7'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-lg md:text-xl text-[#6c757d]'>This is for: </div>
-                    <div className='text-lg md:text-xl'>{toFirstName}</div>
+                    <div className='text-base md:text-xl text-[#6c757d]'>This is for: </div>
+                    <div className='text-base md:text-xl'>{toFirstName}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/to-who`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-lg md:text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-base md:text-xl'>edit</div>
                     </div>
                 </div>
 
                 <div className='flex items-center gap-1 mt-1'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-lg md:text-xl text-[#6c757d]'>Occasion: </div>
-                    <div className='text-lg md:text-xl'>{occasion}</div>
+                    <div className='text-base md:text-xl text-[#6c757d]'>Occasion: </div>
+                    <div className='text-base md:text-xl'>{occasion}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/occasion`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-lg md:text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-base md:text-xl'>edit</div>
                     </div>
                 </div>
 
                 <div className='flex items-center gap-1 mt-1'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-lg md:text-xl text-[#6c757d]'>Inscription: </div>
-                    <div className='text-lg md:text-xl'>{inscription}</div>
+                    <div className='text-base md:text-xl text-[#6c757d]'>Inscription: </div>
+                    <div className='text-base md:text-xl'>{inscription}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/inscription`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-lg md:text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-base md:text-xl'>edit</div>
                     </div>
                 </div>
             </div>
 
-            <div className='text-3xl my-8'>What words describe <span className='italic'>{toFirstName}</span> best?</div>
+            <div className='text-2xl md:text-3xl my-8 text-center sm:text-start'>What words describe <span className='italic'>{toFirstName}</span> best?</div>
             <div className='text-center'>
                 {DescribeList.map(describe => {
                     return (

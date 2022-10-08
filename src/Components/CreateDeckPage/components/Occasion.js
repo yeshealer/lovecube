@@ -49,14 +49,14 @@ export default function Occasion(props) {
         <div className='flex flex-col items-start w-9/10 sm:w-2/3 md:w-1/2'>
             <div className='flex items-center gap-1 mt-7'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-xl text-[#6c757d]'>Occasion: </div>
-                <div className='text-xl'>{toFirstName}</div>
+                <div className='text-base text-[#6c757d]'>Occasion: </div>
+                <div className='text-base'>{toFirstName}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${mainPathname}/to-who`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
-            <div className='text-3xl my-8'>What's the occasion?</div>
+            <div className='text-2xl md:text-3xl my-8'>What's the occasion?</div>
 
             <table class="w-full text-sm text-left text-gray-500 text-gray-400">
                 <tbody>

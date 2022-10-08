@@ -41,7 +41,7 @@ export default function CreateDeckPage() {
     return (
         <CreateDeckBody>
             <Content>
-                <div className='text-[#6c757d] pt-3'>Tell us about who this is for and we'll customize the messages.</div>
+                <div className='text-[#6c757d] pt-3 text-center sm:text-start'>Tell us about who this is for and we'll customize the messages.</div>
                 {subPathname === 'to-who' && <ToWho
                     occasion={occasion}
                     pathname={mainPathname}
