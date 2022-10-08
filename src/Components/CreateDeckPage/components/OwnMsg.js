@@ -34,55 +34,55 @@ export default function OwnMsg(props) {
         }
     }, [ownMessage])
     return (
-        <div className='flex flex-col items-center w-2/3'>
-            <div className='w-3/4'>
+        <div className='flex flex-col items-center w-9/10 md:w-2/3'>
+            <div className='w-full md:w-3/4'>
                 <div className='flex items-center gap-1 mt-7'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-xl text-[#6c757d]'>This is for: </div>
-                    <div className='text-xl'>{toFirstName}</div>
+                    <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>This is for: </div>
+                    <div className='text-base sm:text-lg md:text-xl'>{toFirstName}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/to-who`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                     </div>
                 </div>
 
                 <div className='flex items-center gap-1 mt-1'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-xl text-[#6c757d]'>Occasion: </div>
-                    <div className='text-xl'>{occasion}</div>
+                    <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Occasion: </div>
+                    <div className='text-base sm:text-lg md:text-xl'>{occasion}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/occasion`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                     </div>
                 </div>
 
                 <div className='flex items-center gap-1 mt-1'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-xl text-[#6c757d]'>Inscription: </div>
-                    <div className='text-xl'>{inscription}</div>
+                    <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Inscription: </div>
+                    <div className='text-base sm:text-lg md:text-xl'>{inscription}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/inscription`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                     </div>
                 </div>
 
                 <div className='flex items-center gap-1 mt-1'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-xl text-[#6c757d]'>Traits: </div>
-                    <div className='text-xl'>{selectedDescribe.length} amazing traits</div>
+                    <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Traits: </div>
+                    <div className='text-base sm:text-lg md:text-xl'>{selectedDescribe.length} amazing traits</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/describe`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                     </div>
                 </div>
 
                 <div className='flex items-center gap-1 mt-1'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-xl text-[#6c757d]'>More Inscription: </div>
-                    <div className='text-xl'>{moreOption}</div>
+                    <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>More Message: </div>
+                    <div className='text-base sm:text-lg md:text-xl'>{moreOption}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/more-option`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                     </div>
                 </div>
 
@@ -93,14 +93,14 @@ export default function OwnMsg(props) {
 
                 <div className='flex items-center gap-1 mt-1'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-xl text-[#6c757d]'>Final image: </div>
+                    <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Final image: </div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/upload`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                     </div>
                 </div>
 
-                <div className='text-3xl my-8'>Select a message for the last card</div>
+                <div className='text-3xl my-8 text-center'>Select a message for the last card</div>
 
                 <div className='flex flex-col'>
                     <select id="messages" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" onClick={event => {

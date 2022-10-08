@@ -49,7 +49,7 @@ export default function ToWho(props) {
         }
     }, [firstName])
     return (
-        <div className='flex flex-col items-start w-1/2'>
+        <div className='flex flex-col items-start w-9/10 sm:w-2/3 md:w-1/2'>
             <div className='text-3xl my-8'>Who is this for?</div>
             <div className='w-full flex flex-col items-center'>
                 <div className='w-full'>The first name <span className='text-[#6c757d]'>(required)</span>:</div>

@@ -50,7 +50,7 @@ export default function Inscription(props) {
         }
     }, [inscription])
     return (
-        <div className='flex flex-col items-start w-1/2'>
+        <div className='flex flex-col items-start w-9/10 sm:w-2/3 md:w-1/2'>
             <div className='flex items-center gap-1 mt-7'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
                 <div className='text-xl text-[#6c757d]'>This is for: </div>

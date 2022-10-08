@@ -64,7 +64,9 @@ export default function VideoSection() {
                         <Stock className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] md:w-[660px] md:h-[660px] lg:w-96 lg:h-96 xl:w-[540px] xl:h-[540px] bg-slate-300 rounded-[40px] shadow-2xl" />
                     </Skeleton>
                 )} */}
-                <img src='https://www.lovecube.com/static/lovecube/img/lifestyle/himInChair.jpg' alt='player background' className='w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] md:w-[660px] md:h-[660px] lg:w-96 lg:h-96 xl:w-[540px] xl:h-[540px] rounded-[40px] shadow-2xl' />
+                <div className='flex justify-center w-full'>
+                    <img src='https://www.lovecube.com/static/lovecube/img/lifestyle/himInChair.jpg' alt='player background' className='w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] md:w-[660px] md:h-[660px] lg:w-96 lg:h-96 xl:w-[540px] xl:h-[540px] rounded-[40px] shadow-2xl' />
+                </div>
             </Stock>
         </VideoSectionContent>
     )

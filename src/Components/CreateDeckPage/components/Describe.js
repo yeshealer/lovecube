@@ -27,34 +27,34 @@ export default function Describe(props) {
     }
     return (
         <div className='flex flex-col items-center w-full'>
-            <div className='w-1/2'>
+            <div className='w-9/10 sm:w-2/3 md:w-1/2'>
                 <div className='flex items-center gap-1 mt-7'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-xl text-[#6c757d]'>This is for: </div>
-                    <div className='text-xl'>{toFirstName}</div>
+                    <div className='text-lg md:text-xl text-[#6c757d]'>This is for: </div>
+                    <div className='text-lg md:text-xl'>{toFirstName}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/to-who`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-lg md:text-xl'>edit</div>
                     </div>
                 </div>
 
                 <div className='flex items-center gap-1 mt-1'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-xl text-[#6c757d]'>Occasion: </div>
-                    <div className='text-xl'>{occasion}</div>
+                    <div className='text-lg md:text-xl text-[#6c757d]'>Occasion: </div>
+                    <div className='text-lg md:text-xl'>{occasion}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/occasion`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-lg md:text-xl'>edit</div>
                     </div>
                 </div>
 
                 <div className='flex items-center gap-1 mt-1'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-xl text-[#6c757d]'>Inscription: </div>
-                    <div className='text-xl'>{inscription}</div>
+                    <div className='text-lg md:text-xl text-[#6c757d]'>Inscription: </div>
+                    <div className='text-lg md:text-xl'>{inscription}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/inscription`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                        <div className='text-[#3e9ca3] text-xl'>edit</div>
+                        <div className='text-[#3e9ca3] text-lg md:text-xl'>edit</div>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@ export default function Describe(props) {
             <div className='text-center'>
                 {DescribeList.map(describe => {
                     return (
-                        <button className={`border text-base px-2 py-1.5 rounded-md mr-2 mb-2 ${selectedButton.includes(describe) ? 'bg-[#9a1f60] text-white border-[#9a1f60]' : 'text-[#808080] border-[#808080]'} focus:ring-4 focus:ring-rose-300 hover:bg-[#Aa2f60] hover:text-white hover:border-[#9a1f60]`} onClick={() => handleClickButton(describe)}>{describe}</button>
+                        <button className={`border text-base px-2 py-1.5 rounded-md mr-2 mb-2 ${selectedButton.includes(describe) ? 'bg-[#9a1f60] text-white border-[#9a1f60]' : 'bg-white text-[#808080] border-[#808080]'} focus:ring-4 focus:ring-rose-300 hover:border-[#9a1f60]`} onClick={() => handleClickButton(describe)}>{describe}</button>
                     )
                 })}
             </div>

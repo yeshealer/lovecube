@@ -30,54 +30,54 @@ export default function CreateCard(props) {
         navigate(`/create-deck/${pathname}/upload`)
     }
     return (
-        <div className='flex flex-col w-1/2'>
+        <div className='flex flex-col w-9/10 sm:w-2/3 md:w-1/2'>
             <div className='flex items-center gap-1 mt-7'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-xl text-[#6c757d]'>This is for: </div>
-                <div className='text-xl'>{toFirstName}</div>
+                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>This is for: </div>
+                <div className='text-base sm:text-lg md:text-xl'>{toFirstName}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/to-who`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-xl text-[#6c757d]'>Occasion: </div>
-                <div className='text-xl'>{occasion}</div>
+                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Occasion: </div>
+                <div className='text-base sm:text-lg md:text-xl'>{occasion}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/occasion`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-xl text-[#6c757d]'>Inscription: </div>
-                <div className='text-xl'>{inscription}</div>
+                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Inscription: </div>
+                <div className='text-base sm:text-lg md:text-xl'>{inscription}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/inscription`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-xl text-[#6c757d]'>Traits: </div>
-                <div className='text-xl'>{selectedDescribe.length} amazing traits</div>
+                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>Traits: </div>
+                <div className='text-base sm:text-lg md:text-xl'>{selectedDescribe.length} amazing traits</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/describe`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                 </div>
             </div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
-                <div className='text-xl text-[#6c757d]'>More Inscription: </div>
-                <div className='text-xl'>{moreOption}</div>
+                <div className='text-base sm:text-lg md:text-xl text-[#6c757d]'>More Message: </div>
+                <div className='text-base sm:text-lg md:text-xl'>{moreOption}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/more-option`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
-                    <div className='text-[#3e9ca3] text-xl'>edit</div>
+                    <div className='text-[#3e9ca3] text-base sm:text-lg md:text-xl'>edit</div>
                 </div>
             </div>
 
@@ -92,12 +92,12 @@ export default function CreateCard(props) {
                 <>
                     <div className='self-center mt-5'>
                         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-                            <div className='bg-gray-200 rounded-2xl shadow-xl w-[450px] h-[450px]'>
+                            <div className='bg-gray-200 rounded-2xl shadow-xl w-[350px] sm:w-[400px] md:w-[450px] h-[350px] sm:h-[400px] md:h-[450px]'>
                                 <Atropos shadow highlight={false} alwaysActive activeOffset={40}>
                                     <img src={imageURI} alt="card" data-atropos-offset="5" />
                                 </Atropos>
                             </div>
-                            <div className='bg-gray-200 rounded-2xl shadow-xl w-[450px] h-[450px] text-center flex items-center px-10'>
+                            <div className='bg-gray-200 rounded-2xl shadow-xl w-[350px] sm:w-[400px] md:w-[450px] h-[350px] sm:h-[400px] md:h-[450px] text-center flex items-center px-10'>
                                 It's hard to put into words just how special you are to me. With this gift, I have tried to do that. Every sentiment is 100% true.
                             </div>
                         </ReactCardFlip>
