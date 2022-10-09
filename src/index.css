@@ -15,6 +15,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.pure-modal-backdrop {
+  justify-content: flex-start !important;
+}
+
+.pure-modal {
+  display: none;
+  width: 500px !important;
+}
+
+.pure-modal .panel-body {
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .pure-modal {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .pure-modal {
+    width: 350px !important;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

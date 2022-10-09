@@ -50,7 +50,7 @@ export default function Payment() {
                     onCloseCreateModal();
                     return true;
                 }}
-                width="500px"
+                className="mt-10"
             >
                 <div className='flex flex-col w-full py-3 px-2 sm:px-7'>
                     <div className="flex flex-col items-center">

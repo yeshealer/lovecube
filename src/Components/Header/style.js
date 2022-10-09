@@ -21,5 +21,5 @@ export const Navbar = wrapn('button')`
 `
 
 export const CreateBtn = wrapn('button')`
-    bg-[#3e9ca3] text-white ml-7 font-bold py-1.5 px-3 text-base rounded-md
+    bg-[#3e9ca3] text-white font-bold py-1.5 px-3 text-base rounded-md
 `

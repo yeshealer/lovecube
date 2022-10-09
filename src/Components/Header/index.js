@@ -53,11 +53,6 @@ const Header = () => {
                 </div>
             </Content>
             <PureModal
-                footer={
-                    <div className="w-full flex justify-center">
-                        <CreateBtn onClick={() => onOpenCreateModal()}>Create Yours Now</CreateBtn>
-                    </div>
-                }
                 isOpen={mobileModalOpen}
                 closeButton={MobileModalCloseIcon}
                 closeButtonPosition="bottom"
@@ -65,7 +60,7 @@ const Header = () => {
                     onCloseMobileModal();
                     return true;
                 }}
-                width="500px"
+                className="mt-10"
             >
                 <div className='flex flex-col items-start w-full'>
                     {HeaderGroup.map(header => {
@@ -77,6 +72,12 @@ const Header = () => {
                         )
                     })}
                 </div>
+                <div className="w-full flex justify-center mt-5">
+                    <CreateBtn onClick={() => {
+                        onOpenCreateModal()
+                        onCloseMobileModal()
+                    }}>Create Yours Now</CreateBtn>
+                </div>
             </PureModal>
             <PureModal
                 isOpen={createModalOpen}
@@ -86,7 +87,7 @@ const Header = () => {
                     onCloseCreateModal();
                     return true;
                 }}
-                width="500px"
+                className="mt-10"
             >
                 <div className='flex flex-col w-full py-3 px-2 sm:px-7'>
                     <div className="flex flex-col items-center">
