@@ -1,18 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Icon } from '@iconify/react';
-import ReactPlayer from 'react-player'
 import { TypeAnimation } from 'react-type-animation';
-import { VideoSectionContent, Title, Skeleton } from '../style'
+import { VideoSectionContent, Title } from '../style'
 import { Stock, Flex, FlexDiv } from '../../Gadgets/GlobalComponents'
-import IntroVideo from '../../../video/intro-video.mp4';
 
 export default function VideoSection() {
-    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+    const vidRef = useRef();
 
-    const onLoadedData = () => {
-        setIsVideoLoaded(true);
-    };
-
+    useEffect(() => { vidRef.current.play(); }, []);
     return (
         <VideoSectionContent>
             <Stock className="w-full grid grid-cols-1 lg:grid-cols-2 max-w-5xl xl:max-w-7xl items-center justify-center gap-10">
@@ -34,7 +29,7 @@ export default function VideoSection() {
                             <Stock className="text-sm sm:text-lg text-center">a night on the town</Stock>
                         </FlexDiv>
                     </Flex>
-                    <Flex className="mt-10">
+                    <Flex className="mt-10 font-['Open sans bold']">
                         <Stock className="text-xl text-center mr-2 text-stone-700">Perfect for</Stock>
                         <TypeAnimation
                             sequence={[
@@ -44,28 +39,15 @@ export default function VideoSection() {
                             wrapper="div"
                             cursor={true}
                             repeat={Infinity}
-                            className="text-xl text-center font-bold italic text-[#9a1f60]"
+                            className='text-xl text-center italic text-[#9a1f60] font-black'
                         />
                     </Flex>
                 </Stock>
-                {/* {isVideoLoaded ? (
-                    <ReactPlayer
-                        playing
-                        url={IntroVideo}
-                        width='540px'
-                        height='540px'
-                        onReady={onLoadedData}
-                        playsinline
-                        muted
-                        loop
-                    />
-                ) : (
-                    <Skeleton className="w-full h-full flex justify-center">
-                        <Stock className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] md:w-[660px] md:h-[660px] lg:w-96 lg:h-96 xl:w-[540px] xl:h-[540px] bg-slate-300 rounded-[40px] shadow-2xl" />
-                    </Skeleton>
-                )} */}
-                <div className='flex justify-center w-full'>
-                    <img src='https://www.lovecube.com/static/lovecube/img/lifestyle/himInChair.jpg' alt='player background' className='w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] md:w-[660px] md:h-[660px] lg:w-96 lg:h-96 xl:w-[540px] xl:h-[540px] rounded-[40px] shadow-2xl' />
+                <div className='w-full h-full flex justify-center rounded-2xl'>
+                    <video preload playsinline autoplay muted loop className='rounded-2xl w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] xl:w-[540px] xl:h-[540px]' poster='assets/image/preload.png' ref={vidRef}>
+                        <source src="https://lovecube-com.s3.us-east-2.amazonaws.com/static/lovecube/videos/lc_stop_motion.webm" type="video/webm" />
+                        <source src="https://lovecube-com.s3.us-east-2.amazonaws.com/static/lovecube/videos/lc_stop_motion.mp4" type="video/mp4" />
+                    </video>
                 </div>
             </Stock>
         </VideoSectionContent>

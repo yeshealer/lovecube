@@ -73,13 +73,13 @@ export default function SendMail(props) {
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
                 <div className='text-base text-[#6c757d]'>Inscription: </div>
-                <div className={`text-base ${inscription.length > 18 && 'hidden sm:block'}`}>{inscription}</div>
+                <div className={`text-base ${inscription.length > 18 ? 'hidden sm:block' : 'block'}`}>{inscription}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/inscription`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
                     <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
-            <div className={`text-base ${inscription.length > 18 && 'block sm:hidden'} text-end w-full`}>{inscription}</div>
+            <div className={`text-base ${inscription.length > 18 ? 'block sm:hidden text-end' : 'hidden'}`}>{inscription}</div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
@@ -94,13 +94,13 @@ export default function SendMail(props) {
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
                 <div className='text-base text-[#6c757d]'>More Message: </div>
-                <div className={`text-base ${moreOption.length > 18 && 'hidden sm:block'}`}>{moreOption}</div>
+                <div className={`text-base ${moreOption.length > 18 ? 'hidden sm:block' : 'block'}`}>{moreOption}</div>
                 <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/more-option`)}>
                     <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
                     <div className='text-[#3e9ca3] text-base'>edit</div>
                 </div>
             </div>
-            <div className={`text-base ${moreOption.length > 18 && 'block sm:hidden'} text-end w-full`}>{moreOption}</div>
+            <div className={`text-base ${moreOption.length > 18 ? 'block sm:hidden text-end' : 'hidden'} text-end w-full`}>{moreOption}</div>
 
             <div className='flex items-center gap-1 mt-1'>
                 <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
@@ -153,7 +153,10 @@ export default function SendMail(props) {
                 </div>
 
                 <div className='flex flex-col items-center justify-center w-full'>
-                    <button type="button" class={`font-bold text-white ${!isRequired ? "bg-[#9a1f60] hover:bg-[#AA2F60] focus:ring-rose-200" : "bg-[#3e9ca3] hover:bg-[#4e9ca3] focus:ring-green-200"} focus:ring-2 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mt-10 ${isRequired && 'next-button-animation'}`} onClick={() => handleSendMail()}>
+                    <button type="button" class={`font-bold text-white ${!isRequired ? "bg-[#9a1f60] hover:bg-[#AA2F60] focus:ring-rose-200" : "bg-[#3e9ca3] hover:bg-[#4e9ca3] focus:ring-green-200"} focus:ring-2 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mt-10 ${isRequired && 'next-button-animation'}`} onClick={() => {
+                        handleSendMail()
+                        navigate('/decks')
+                    }}>
                         Send
                         <Icon icon="akar-icons:arrow-right" width={20} height={20} className="ml-1" />
                     </button>

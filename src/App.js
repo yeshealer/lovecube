@@ -9,7 +9,8 @@ import {
   About,
   Contact,
   FAQ,
-  CreateDeck
+  CreateDeck,
+  MyDeck
 } from './Views'
 import { Header, Footer } from './Components'
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/create-deck/:id/:id" element={<CreateDeck />} />
+          <Route path="/decks" element={<MyDeck />} />
         </Routes>
       </Suspense>
       <Footer />

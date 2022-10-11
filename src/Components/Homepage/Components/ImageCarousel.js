@@ -11,6 +11,7 @@ import 'react-pure-modal/dist/react-pure-modal.min.css';
 
 export default function ImageCarousel() {
     const navigate = useNavigate()
+    const [animation, setAnimation] = useState("")
     const [createModalOpen, setCreateModalOpen] = useState(false);
     const responsive = {
         desktop: {
@@ -39,6 +40,8 @@ export default function ImageCarousel() {
     return (
         <ImageCarouselContent>
             <Carousel
+                autoPlay
+                autoPlaySpeed={2000}
                 swipeable
                 draggable
                 infinite
@@ -57,20 +60,22 @@ export default function ImageCarousel() {
                 })}
             </Carousel>
             <Stock className="mt-5 p-5 px-10">
-                <Stock className="text-stone-700 text-lg">
+                <Stock className="text-stone-700 text-base">
                     There is no better way to let someone know how you feel than with your words. Figuring out exactly what to say can be difficult, but not with the help of <b>LoveCube</b>, a 21st-century love letter.
                 </Stock>
-                <Stock className="text-stone-700 text-lg mt-5">
+                <Stock className="text-stone-700 text-base mt-5">
                     LoveCube is a personalized love letter in a keepsake box. It’s the perfect sentimental way to say <i><b>“I love you”</b></i> to your boyfriend, girlfriend, husband, wife, mom, dad, or anyone else who is truly special in your life. Express your deepest feelings for someone you care about.
                 </Stock>
-                <Stock className="text-stone-700 text-lg mt-5">
+                <Stock className="text-stone-700 text-base mt-5">
                     Click below to start your personalized love letter today.
                 </Stock>
             </Stock>
-            <Button className="flex items-center gap-3 bg-[#3e9ca3] text-white px-5 py-3 text-2xl text-semibold rounded-lg shadow-xl mt-8" onClick={() => onOpenCreateModal()}>
-                Create Yours Now
-                <Icon icon="akar-icons:arrow-right" />
-            </Button>
+            <button class="relative inline-block text-white px-5 py-3 font-medium text-xl flex items-center gap-3 group" onMouseLeave={() => setAnimation("")} onMouseEnter={() => setAnimation("animate-ping")} onClick={() => onOpenCreateModal()}>
+                <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded-md transform translate-x-1 translate-y-1 bg-gray-600 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"></span>
+                <span class="absolute inset-0 w-full h-full bg-[#3e9ca3] rounded-md group-hover:bg-gray"></span>
+                <span class="relative text-white">Create Yours Now</span>
+                <Icon icon="akar-icons:arrow-right" className={`relative ${animation}`} />
+            </button>
             <div className="createModal">
                 <PureModal
                     isOpen={createModalOpen}
@@ -80,7 +85,6 @@ export default function ImageCarousel() {
                         onCloseCreateModal();
                         return true;
                     }}
-                    className="mt-10"
                 >
                     <div className='flex flex-col w-full py-3 px-2 sm:px-7'>
                         <div className="flex flex-col items-center">

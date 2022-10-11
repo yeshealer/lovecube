@@ -6,7 +6,7 @@ export const Body = wrapn('div')`
 `
 
 export const PromotionContent = wrapn('div')`
-    w-full flex flex-col justify-center items-center bg-[#9a1f60] text-white text-base sm:text-lg font-semibold p-1
+    w-full flex flex-col justify-center items-center bg-[#9a1f60] text-white text-base sm:text-lg font-semibold p-1 cursor-pointer
 `
 
 export const VideoSectionContent = wrapn('div')`
@@ -26,15 +26,15 @@ export const UsersReviewContent = wrapn('div')`
 `
 
 export const Title = wrapn('p')`
-    text-4xl xl:text-5xl tracking-wide text-stone-700
+    text-4xl xl:text-5xl tracking-wide text-stone-700 font-500
 `
 
 export const CreateButton = wrapn('button')`
-    border-2 bg-white border-[#2f6569] text-[#2f6569] rounded-lg text-[20px] font-semibold w-[300px] sm:w-[270px] md:w-[350px] py-2
+    border-2 bg-white border-[#2f6569] text-[#2f6569] rounded-lg text-[20px] font-semibold w-[300px] sm:w-[270px] md:w-[350px] py-2 hover:bg-emerald-100 animation-all duration-300
 `
 
 export const ReviewGroup = wrapn('div')`
-    max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10
+    max-w-6xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10
 `
 
 export const LoveCubeGuideContent = wrapn('div')`
@@ -50,15 +50,15 @@ export const Skeleton = wrapn('div')`
 `
 
 export const ReviewerName = wrapn('div')`
-    text-xl font-bold text-stone-600
+    text-base font-bold text-stone-600
 `
 
 export const ReviewerPosition = wrapn('div')`
-    text-base font-semibold text-stone-500
+    text-sm font-semibold text-stone-500
 `
 
 export const ReviewText = wrapn('div')`
-    bg-white text-lg p-10 pb-14 h-min text-left text-stone-700
+    bg-white text-[15px] p-10 pb-14 h-min text-left text-stone-800 shadow-lg
 `
 
 export const Guide = wrapn('div')`

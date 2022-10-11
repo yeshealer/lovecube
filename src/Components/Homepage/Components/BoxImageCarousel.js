@@ -24,6 +24,8 @@ export default function BoxImageCarousel() {
     return (
         <ImageCarouselContent>
             <Carousel
+                autoPlay
+                autoPlaySpeed={2000}
                 swipeable
                 draggable
                 responsive={responsive}

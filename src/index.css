@@ -3,6 +3,12 @@
   src: url(./fonts/OpenSans-Regular.ttf);
 }
 
+@font-face {
+  font-family: "Open sans bold";
+  src: local("Open sans bold"), url("./fonts/OpenSans-Bold.ttf") format("truetype");
+  font-weight: normal;
+}
+
 body {
   margin: 0;
   font-family: "Open sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
@@ -25,10 +31,15 @@ code {
 
 .pure-modal {
   width: 500px !important;
+  animation: 500ms alternate display-show;
 }
 
 .pure-modal .panel-body {
   border-radius: 10px;
+}
+
+.review-text::before {
+  content: "\eb75";
 }
 
 @media screen and (max-width: 1024px) {
@@ -40,6 +51,17 @@ code {
 @media screen and (max-width: 640px) {
   .pure-modal {
     width: 350px !important;
+  }
+}
+
+@keyframes display-show {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 

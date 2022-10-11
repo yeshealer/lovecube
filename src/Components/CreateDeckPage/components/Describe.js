@@ -25,6 +25,7 @@ export default function Describe(props) {
     const handleNextDescribe = () => {
         navigate(`/create-deck/${props.pathname}/more-option`)
     }
+    console.log(inscription)
     return (
         <div className='flex flex-col items-center w-full'>
             <div className='w-9/10 sm:w-2/3 md:w-1/2'>
@@ -51,13 +52,13 @@ export default function Describe(props) {
                 <div className='flex items-center gap-1 mt-1'>
                     <Icon icon="akar-icons:circle-check" color="#3e9ca3" width="24" height="24" />
                     <div className='text-base text-[#6c757d]'>Inscription: </div>
-                    <div className={`text-base ${inscription.length > 18 && 'hidden sm:block'}`}>{inscription}</div>
+                    <div className={`text-base ${inscription.length > 18 ? 'hidden sm:block' : 'block'}`}>{inscription}</div>
                     <div className='flex items-center cursor-pointer' onClick={() => navigate(`/create-deck/${pathname}/inscription`)}>
                         <Icon icon="bx:edit" color="#3e9ca3" width="24" height="24" />
                         <div className='text-[#3e9ca3] text-base'>edit</div>
                     </div>
                 </div>
-                <div className={`text-base ${inscription.length > 18 && 'block sm:hidden'} text-end`}>{inscription}</div>
+                <div className={`text-base ${inscription.length > 18 ? 'block sm:hidden text-end' : 'hidden'}`}>{inscription}</div>
             </div>
 
             <div className='text-2xl md:text-3xl my-8 text-center sm:text-start'>What words describe <span className='italic'>{toFirstName}</span> best?</div>

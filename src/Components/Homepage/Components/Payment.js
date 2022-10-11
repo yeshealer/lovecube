@@ -38,10 +38,12 @@ export default function Payment() {
                     )
                 })}
             </Stock>
-            <Button className="flex items-center gap-3 bg-[#9A1F60] text-white px-5 py-3 text-2xl text-semibold rounded-lg shadow-xl mt-10" onClick={() => onOpenCreateModal()}>
-                Create Yours Now
-                <Icon icon="akar-icons:arrow-right" />
-            </Button>
+            <button class="relative inline-block text-white px-5 py-3 font-medium text-xl flex items-center gap-3 group mt-10" onClick={() => onOpenCreateModal()}>
+                <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded-md transform translate-x-1 translate-y-1 bg-gray-600 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"></span>
+                <span class="absolute inset-0 w-full h-full bg-[#9A1F60] rounded-md group-hover:bg-gray"></span>
+                <span class="relative text-white">Create Yours Now</span>
+                <Icon icon="akar-icons:arrow-right" className='relative' />
+            </button>
             <div className="createModal">
                 <PureModal
                     isOpen={createModalOpen}
