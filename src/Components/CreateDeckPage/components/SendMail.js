@@ -35,7 +35,7 @@ export default function SendMail(props) {
     }
 
     const handleSendMail = async () => {
-        const URL = `https://dry-headland-04865.herokuapp.com/saveData?toFirstName=${toFirstName}&toLastName=${toLastName}&toNickName=${toNickName}&describe=${selectedDescribe}&finalCardImage=https://github.com&fromFirstName=${fromFirstName}&fromLastName=${fromLastName}&fromNickName=${fromNickName}&inscription=${inscription}&moreMessage=${moreOption}&msgFinalCard=${ownMessage}&occasion=${occasion}&topCardImage=${topCardImage}&yourMail=${sendMail}`
+        const URL = `https://agile-lake-31041.herokuapp.com/saveData?toFirstName=${toFirstName}&toLastName=${toLastName}&toNickName=${toNickName}&describe=${selectedDescribe}&finalCardImage=https://github.com&fromFirstName=${fromFirstName}&fromLastName=${fromLastName}&fromNickName=${fromNickName}&inscription=${inscription}&moreMessage=${moreOption}&msgFinalCard=${ownMessage}&occasion=${occasion}&topCardImage=${topCardImage}&yourMail=${sendMail}`
         if (sendMail.length > 0) {
             await axios.post(URL)
         }
@@ -154,6 +154,7 @@ export default function SendMail(props) {
 
                 <div className='flex flex-col items-center justify-center w-full'>
                     <button type="button" class={`font-bold text-white ${!isRequired ? "bg-[#9a1f60] hover:bg-[#AA2F60] focus:ring-rose-200" : "bg-[#3e9ca3] hover:bg-[#4e9ca3] focus:ring-green-200"} focus:ring-2 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mt-10 ${isRequired && 'next-button-animation'}`} onClick={() => {
+                        document.cookie = `userId=${sendMail}`
                         handleSendMail()
                         navigate('/decks')
                     }}>

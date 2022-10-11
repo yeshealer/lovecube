@@ -25,7 +25,6 @@ export default function Describe(props) {
     const handleNextDescribe = () => {
         navigate(`/create-deck/${props.pathname}/more-option`)
     }
-    console.log(inscription)
     return (
         <div className='flex flex-col items-center w-full'>
             <div className='w-9/10 sm:w-2/3 md:w-1/2'>
