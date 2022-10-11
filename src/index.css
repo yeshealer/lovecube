@@ -15,12 +15,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.createModal .pure-modal-backdrop {
+  justify-content: center !important;
+}
+
 .pure-modal-backdrop {
   justify-content: flex-start !important;
 }
 
 .pure-modal {
-  display: none;
   width: 500px !important;
 }
 

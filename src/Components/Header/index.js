@@ -38,7 +38,7 @@ const Header = () => {
                     <img src="assets/image/logo.png" alt="logo" width={40} height={40} draggable={false} />
                     <LogoTitle>LoveCube</LogoTitle>
                 </LogoSection>
-                {isShow && <Flex>
+                {isShow && <Flex className="gap-5">
                     <Flex className="hidden lg:flex">
                         {HeaderGroup.map(header => {
                             return (
@@ -79,36 +79,37 @@ const Header = () => {
                     }}>Create Yours Now</CreateBtn>
                 </div>
             </PureModal>
-            <PureModal
-                isOpen={createModalOpen}
-                closeButton={MobileModalCloseIcon}
-                closeButtonPosition="bottom"
-                onClose={() => {
-                    onCloseCreateModal();
-                    return true;
-                }}
-                className="mt-10"
-            >
-                <div className='flex flex-col w-full py-3 px-2 sm:px-7'>
-                    <div className="flex flex-col items-center">
-                        <img src="assets/image/logo.png" alt="logo" width={50} height={50} draggable={false} />
-                        <div className="text-3xl mt-2 text-[#212529]">Who is this for?</div>
+            <div className="createModal">
+                <PureModal
+                    isOpen={createModalOpen}
+                    closeButton={MobileModalCloseIcon}
+                    closeButtonPosition="bottom"
+                    onClose={() => {
+                        onCloseCreateModal();
+                        return true;
+                    }}
+                >
+                    <div className='flex flex-col w-full py-3 px-2 sm:px-7'>
+                        <div className="flex flex-col items-center">
+                            <img src="assets/image/logo.png" alt="logo" width={50} height={50} draggable={false} />
+                            <div className="text-3xl mt-2 text-[#212529]">Who is this for?</div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2 mt-5">
+                            {ButtonGroup.map((button) => {
+                                return (
+                                    <div className="w-full flex justify-center">
+                                        <button className="text-white text-lg bg-[#3e9ca3] rounded-lg w-[160px] sm:w-[200px] p-2" key={button} onClick={() => {
+                                            navigate(`/create-deck/${button.toLowerCase()}/to-who`)
+                                            onCloseCreateModal()
+                                            onCloseMobileModal()
+                                        }}>{button}</button>
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-2 mt-5">
-                        {ButtonGroup.map((button) => {
-                            return (
-                                <div className="w-full flex justify-center">
-                                    <button className="text-white text-lg bg-[#3e9ca3] rounded-lg w-[160px] sm:w-[200px] p-2" key={button} onClick={() => {
-                                        navigate(`/create-deck/${button.toLowerCase()}/to-who`)
-                                        onCloseCreateModal()
-                                        onCloseMobileModal()
-                                    }}>{button}</button>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-            </PureModal>
+                </PureModal>
+            </div>
         </Body>
     )
 }
