@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import {
     Body,
@@ -7,6 +8,7 @@ import {
 } from './style'
 
 export default function DeckPage() {
+    const navigate = useNavigate()
     const [currentEmail, setCurrentEmail] = useState("")
     const [details, setDetails] = useState([])
     const [progress, setProgress] = useState(false)
@@ -52,10 +54,10 @@ export default function DeckPage() {
                             const min = fullDate.getMinutes();
                             const finalTime = month + '. ' + date + ', ' + year + ', ' + hour + ':' + min
                             return (
-                                <div className='border divide-y w-4/5'>
+                                <div className='border divide-y w-4/5' key={index}>
                                     <div className='flex justify-between w-full p-3'>
                                         <div className='text-lg text-gray-600'>{index + 1}. <span className='text-[#3e9ca3]'>{detail.inscription}</span></div>
-                                        <button className='text-base text-[#3e9ca3]'>edit</button>
+                                        <button className='text-base text-[#3e9ca3]' onClick={() => navigate(`/cards/${detail._id}`)}>edit</button>
                                     </div>
                                     <div className='grid grid-cols-2 p-3 text-gray-600'>
                                         <div>

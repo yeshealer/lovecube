@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import PureModal from 'react-pure-modal';
 import { PromotionDetailContent } from '../style'
-import { Flex, Stock, Button } from '../../Gadgets/GlobalComponents'
+import { Flex, Stock } from '../../Gadgets/GlobalComponents'
 import { PaymentImages } from '../../Gadgets/Constants'
 import { ButtonGroup } from '../../Gadgets/Constants';
 import 'react-pure-modal/dist/react-pure-modal.min.css';
 
 export default function Payment() {
     const navigate = useNavigate()
+    const [animation, setAnimation] = useState("")
     const [createModalOpen, setCreateModalOpen] = useState(false);
 
     const onOpenCreateModal = () => setCreateModalOpen(true);
@@ -38,11 +39,11 @@ export default function Payment() {
                     )
                 })}
             </Stock>
-            <button class="relative inline-block text-white px-5 py-3 font-medium text-xl flex items-center gap-3 group mt-10" onClick={() => onOpenCreateModal()}>
-                <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded-md transform translate-x-1 translate-y-1 bg-gray-600 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"></span>
-                <span class="absolute inset-0 w-full h-full bg-[#9A1F60] rounded-md group-hover:bg-gray"></span>
-                <span class="relative text-white">Create Yours Now</span>
-                <Icon icon="akar-icons:arrow-right" className='relative' />
+            <button className="relative inline-block text-white px-5 py-3 font-medium text-xl flex items-center gap-3 group mt-10" onMouseLeave={() => setAnimation("")} onMouseEnter={() => setAnimation("animate-ping")} onClick={() => onOpenCreateModal()}>
+                <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded-md transform translate-x-1 translate-y-1 bg-gray-600 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"></span>
+                <span className="absolute inset-0 w-full h-full bg-[#9A1F60] rounded-md group-hover:bg-gray"></span>
+                <span className="relative text-white">Create Yours Now</span>
+                <Icon icon="akar-icons:arrow-right" className={`relative ${animation}`} />
             </button>
             <div className="createModal">
                 <PureModal
@@ -63,7 +64,7 @@ export default function Payment() {
                         <div className="grid grid-cols-2 gap-2 mt-5">
                             {ButtonGroup.map((button) => {
                                 return (
-                                    <div className="w-full flex justify-center">
+                                    <div className="w-full flex justify-center" key={button}>
                                         <button className="text-white text-lg bg-[#3e9ca3] rounded-lg w-[160px] sm:w-[200px] p-2" key={button} onClick={() => {
                                             navigate(`/create-deck/${button.toLowerCase()}/to-who`)
                                             onCloseCreateModal()

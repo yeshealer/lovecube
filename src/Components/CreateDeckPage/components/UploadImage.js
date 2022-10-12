@@ -41,7 +41,6 @@ export default function UploadImage(props) {
                 imageURL,
                 croppedAreaPixels,
             )
-            console.log('donee', { croppedImage })
             setCroppedImage(croppedImage)
             setIsCropped(true)
         } catch (e) {
@@ -50,7 +49,7 @@ export default function UploadImage(props) {
     }, [croppedAreaPixels])
 
     const handleNextUploadImage = () => {
-        setIsFinalImage(true)
+        setIsFinalImage(croppedImage)
         navigate(`/create-deck/${pathname}/own-msg`)
     }
 
@@ -139,37 +138,39 @@ export default function UploadImage(props) {
                             <Icon icon="fa:cloud-upload" width="24" height="24" />
                             Upload
                         </button>}
-                        {imageList.map((image, index) => (
-                            <>
-                                <div key={index} className="w-[700px] h-[700px] bg-gray-100 relative flex items-center justify-center mt-5 rounded-2xl">
-                                    {!isCropped ? <Cropper
-                                        image={image['data_url']}
-                                        crop={crop}
-                                        zoom={zoom}
-                                        aspect={3 / 3}
-                                        onCropChange={setCrop}
-                                        onCropComplete={onCropComplete}
-                                        onZoomChange={setZoom}
-                                    /> :
-                                        <img src={croppedImage} alt="cropped" className='rounded-2xl' />
-                                    }
-                                </div>
-                                {!isCropped ? (
-                                    <button className='flex items-center bg-[#3e9ca3] gap-2 p-3 py-2 rounded-md text-white mt-5' onClick={() => showCroppedImage(image['data_url'])}>Show Result</button>
-                                ) : (
-                                    <div className='flex items-center gap-5'>
-                                        <button className='flex items-center bg-[#9a1f60] gap-2 p-3 py-2 rounded-md text-white mt-5' onClick={() => setIsCropped(false)}>
-                                            <Icon icon="carbon:crop" width="24" height="24" />
-                                            Edit
-                                        </button>
-                                        <button className='flex items-center bg-[#3e9ca3] gap-2 p-3 py-2 rounded-md text-white mt-5' onClick={() => handleNextUploadImage()}>
-                                            Save
-                                            <Icon icon="akar-icons:arrow-right" width="24" height="24" />
-                                        </button>
+                        {imageList.map((image, index) => {
+                            return (
+                                <>
+                                    <div key={index} className="w-[700px] h-[700px] bg-gray-100 relative flex items-center justify-center mt-5 rounded-2xl">
+                                        {!isCropped ? <Cropper
+                                            image={image['data_url']}
+                                            crop={crop}
+                                            zoom={zoom}
+                                            aspect={3 / 3}
+                                            onCropChange={setCrop}
+                                            onCropComplete={onCropComplete}
+                                            onZoomChange={setZoom}
+                                        /> :
+                                            <img src={croppedImage} alt="cropped" className='rounded-2xl' />
+                                        }
                                     </div>
-                                )}
-                            </>
-                        ))}
+                                    {!isCropped ? (
+                                        <button className='flex items-center bg-[#3e9ca3] gap-2 p-3 py-2 rounded-md text-white mt-5' onClick={() => showCroppedImage(image['data_url'])}>Show Result</button>
+                                    ) : (
+                                        <div className='flex items-center gap-5'>
+                                            <button className='flex items-center bg-[#9a1f60] gap-2 p-3 py-2 rounded-md text-white mt-5' onClick={() => setIsCropped(false)}>
+                                                <Icon icon="carbon:crop" width="24" height="24" />
+                                                Edit
+                                            </button>
+                                            <button className='flex items-center bg-[#3e9ca3] gap-2 p-3 py-2 rounded-md text-white mt-5' onClick={() => handleNextUploadImage()}>
+                                                Save
+                                                <Icon icon="akar-icons:arrow-right" width="24" height="24" />
+                                            </button>
+                                        </div>
+                                    )}
+                                </>
+                            )
+                        })}
                         <button className='text-[#3e9ca3] mt-10' onClick={() => navigate(`/create-deck/${pathname}/own-msg`)}>Skip this step</button>
                     </div>
                 )}

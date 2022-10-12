@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react'
 import Atropos from 'atropos/react';
 import ReactCardFlip from 'react-card-flip';
@@ -24,9 +24,9 @@ export default function CreateCard(props) {
         toFirstName,
         inscription
     )
-    setTopCardImage(imageURI)
 
     const handleNextCreateCard = () => {
+        setTopCardImage(imageURI)
         navigate(`/create-deck/${pathname}/upload`)
     }
     return (

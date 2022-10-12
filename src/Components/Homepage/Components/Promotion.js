@@ -41,7 +41,7 @@ const Promotion = () => {
                         <div className="grid grid-cols-2 gap-2 mt-5">
                             {ButtonGroup.map((button) => {
                                 return (
-                                    <div className="w-full flex justify-center">
+                                    <div className="w-full flex justify-center" key={button}>
                                         <button className="text-white text-lg bg-[#3e9ca3] rounded-lg w-[160px] sm:w-[200px] p-2" key={button} onClick={() => {
                                             navigate(`/create-deck/${button.toLowerCase()}/to-who`)
                                             onCloseCreateModal()

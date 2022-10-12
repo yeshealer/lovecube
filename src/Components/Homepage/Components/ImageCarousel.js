@@ -4,7 +4,7 @@ import Carousel from "react-multi-carousel";
 import { useNavigate } from 'react-router-dom';
 import PureModal from 'react-pure-modal';
 import { ImageCarouselContent } from '../style'
-import { Stock, Button } from '../../Gadgets/GlobalComponents'
+import { Stock } from '../../Gadgets/GlobalComponents'
 import { CreateSlider } from '../../Gadgets/Constants';
 import { ButtonGroup } from '../../Gadgets/Constants';
 import 'react-pure-modal/dist/react-pure-modal.min.css';
@@ -70,10 +70,10 @@ export default function ImageCarousel() {
                     Click below to start your personalized love letter today.
                 </Stock>
             </Stock>
-            <button class="relative inline-block text-white px-5 py-3 font-medium text-xl flex items-center gap-3 group" onMouseLeave={() => setAnimation("")} onMouseEnter={() => setAnimation("animate-ping")} onClick={() => onOpenCreateModal()}>
-                <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded-md transform translate-x-1 translate-y-1 bg-gray-600 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"></span>
-                <span class="absolute inset-0 w-full h-full bg-[#3e9ca3] rounded-md group-hover:bg-gray"></span>
-                <span class="relative text-white">Create Yours Now</span>
+            <button className="relative inline-block text-white px-5 py-3 font-medium text-xl flex items-center gap-3 group" onMouseLeave={() => setAnimation("")} onMouseEnter={() => setAnimation("animate-ping")} onClick={() => onOpenCreateModal()}>
+                <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded-md transform translate-x-1 translate-y-1 bg-gray-600 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"></span>
+                <span className="absolute inset-0 w-full h-full bg-[#3e9ca3] rounded-md group-hover:bg-gray"></span>
+                <span className="relative text-white">Create Yours Now</span>
                 <Icon icon="akar-icons:arrow-right" className={`relative ${animation}`} />
             </button>
             <div className="createModal">
@@ -94,7 +94,7 @@ export default function ImageCarousel() {
                         <div className="grid grid-cols-2 gap-2 mt-5">
                             {ButtonGroup.map((button) => {
                                 return (
-                                    <div className="w-full flex justify-center">
+                                    <div className="w-full flex justify-center" key={button}>
                                         <button className="text-white text-lg bg-[#3e9ca3] rounded-lg w-[160px] sm:w-[200px] p-2" key={button} onClick={() => {
                                             navigate(`/create-deck/${button.toLowerCase()}/to-who`)
                                             onCloseCreateModal()
