@@ -27,6 +27,8 @@ export default function SendMail(props) {
         isFinalImage
     } = props
 
+    console.log(isFinalImage)
+
     const handleSetMail = (event) => {
         const mailAddress = event.target.value
         if (mailAddress.length <= 50) {
@@ -36,9 +38,16 @@ export default function SendMail(props) {
     }
 
     const handleSendMail = async () => {
-        const URL = `https://agile-lake-31041.herokuapp.com/saveData?toFirstName=${toFirstName}&toLastName=${toLastName}&toNickName=${toNickName}&describe=${selectedDescribe}&finalCardImage=${isFinalImage}&fromFirstName=${fromFirstName}&fromLastName=${fromLastName}&fromNickName=${fromNickName}&inscription=${inscription}&moreMessage=${moreOption}&msgFinalCard=${ownMessage}&occasion=${occasion}&topCardImage=${topCardImage}&yourMail=${sendMail}`
+        const URL = `https://agile-lake-31041.herokuapp.com/saveData?toFirstName=${toFirstName}&toLastName=${toLastName}&toNickName=${toNickName}&describe=${selectedDescribe}&fromFirstName=${fromFirstName}&fromLastName=${fromLastName}&fromNickName=${fromNickName}&inscription=${inscription}&moreMessage=${moreOption}&msgFinalCard=${ownMessage}&occasion=${occasion}&topCardImage=${topCardImage}&yourMail=${sendMail}`
         if (sendMail.length > 0) {
-            await axios.post(URL)
+            await axios.post(URL, {
+                finalCardImage: isFinalImage
+            }, {
+                headers: {
+                    'content-type': 'text/json',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            })
         }
     }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
+import PureModal from 'react-pure-modal';
 import axios from 'axios'
 import {
     Body,
@@ -12,6 +13,8 @@ export default function DeckPage() {
     const [currentEmail, setCurrentEmail] = useState("")
     const [details, setDetails] = useState([])
     const [progress, setProgress] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
+
     useEffect(() => {
         (async () => {
             const cookie = decodeURIComponent(document.cookie)
@@ -20,9 +23,14 @@ export default function DeckPage() {
                 if (cookieData[i].includes("userId")) {
                     const startId = cookieData[i].lastIndexOf("userId=")
                     const email = cookieData[i].slice((7 + startId), cookieData[i].length + 1)
-                    const detail = await axios.get(`https://agile-lake-31041.herokuapp.com/readData?yourMail=${email}`)
-                    setDetails(detail.data)
                     setCurrentEmail(email)
+                    const detail = await axios.get(`https://agile-lake-31041.herokuapp.com/readData?yourMail=${email}`, {
+                        headers: {
+                            'content-type': 'text/json',
+                            'Access-Control-Allow-Origin': '*'
+                        }
+                    })
+                    setDetails(detail.data)
                 }
             }
         })()
@@ -31,6 +39,19 @@ export default function DeckPage() {
     const handleProgress = () => {
         setProgress(!progress)
     }
+
+    useEffect(() => {
+        if (details.length > 0) {
+            setIsLoading(false)
+        } else if (details.length === 0) {
+            setIsLoading(true)
+            setInterval(() => {
+                setIsLoading(false)
+            }, 3000)
+        }
+    }, [details])
+
+    console.log(currentEmail)
     return (
         <Body>
             <HeaderTitle>
@@ -74,6 +95,15 @@ export default function DeckPage() {
                         })}
                     </div>
                 </div>
+            </div>
+            <div className='loading-modal'>
+                <PureModal
+                    isOpen={isLoading}
+                >
+                    <div className='w-full flex justify-center items-center'>
+                        <Icon icon="line-md:loading-twotone-loop" width={70} height={70} color="white" />
+                    </div>
+                </PureModal>
             </div>
         </Body>
     )

@@ -117,8 +117,8 @@ export default function OwnMsg(props) {
 
                     <div className='self-center my-5 text-[#6c757d]'>or write your own</div>
 
-                    <label for="message" class="block mb-2 text-base font-medium text-gray-900">Closing card message:</label>
-                    <textarea value={ownMessage} onChange={(event) => handleSetOwnMessage(event)} d="message" rows="4" class="block p-2.5 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Your message..." spellcheck="false" data-ms-editor="true"></textarea>
+                    <label htmlFor="message" class="block mb-2 text-base font-medium text-gray-900">Closing card message:</label>
+                    <textarea value={ownMessage} onChange={(event) => handleSetOwnMessage(event)} d="message" rows="4" class="block p-2.5 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Your message..." spellCheck="false" data-ms-editor="true"></textarea>
 
                     <button type="button" class={`font-bold text-white self-center w-[100px] ${isButtonAnimation ? "bg-[#9a1f60] hover:bg-[#AA2F60] focus:ring-rose-200" : "bg-[#3e9ca3] hover:bg-[#4e9ca3] focus:ring-green-200"} focus:ring-2 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center my-10 ${isButtonAnimation && 'next-button-animation'}`} onClick={() => handleNextOwnMsg()}>
                         Next

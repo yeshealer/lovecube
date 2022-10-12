@@ -42,6 +42,18 @@ code {
   animation: 500ms alternate display-show;
 }
 
+.loading-modal .pure-modal-backdrop {
+  justify-content: center !important;
+}
+
+.loading-modal :where(.panel-body) {
+  background-color: transparent !important;
+}
+
+.loading-modal :where(.close) {
+  display: none;
+}
+
 .pure-modal .panel-body {
   border-radius: 10px;
 }
