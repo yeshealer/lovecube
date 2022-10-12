@@ -23,8 +23,16 @@ export default function EditCardPage() {
         (async () => {
             const details = await axios.get(`https://agile-lake-31041.herokuapp.com/getDataById?uniqueId=${uniqueId}`)
             setDetails(details.data[0])
-            setUpdateEmail(details.data[0].yourMail)
         })()
+        const cookie = decodeURIComponent(document.cookie)
+        const cookieData = cookie.split(';')
+        for (let i = 0; i < cookieData.length; i++) {
+            if (cookieData[i].includes("userId")) {
+                const startId = cookieData[i].lastIndexOf("userId=")
+                const email = cookieData[i].slice((7 + startId), cookieData[i].length + 1)
+                setUpdateEmail(email)
+            }
+        }
     }, [uniqueId])
 
     const updateUserMail = async () => {
@@ -90,17 +98,17 @@ export default function EditCardPage() {
             <div className='border rounded-md p-4 flex flex-col items-center text-[#3F51B5] bg-[#f2f2f2]'>
                 <div className='font-bold text-lg'>Save Adan's LoveCube!</div>
                 <div className=''>We'll send you a link for returning later.</div>
-                <div class="flex mt-2 w-full">
-                    <input type="text" id="website-admin" value={updateEmail} onChange={e => handleSetUpdatedEmail(e)} class="rounded-none outline-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-[#3e9ca3] focus:border-[#3e9ca3] block flex-1 min-w-0 w-full text-sm border-[#3F51B5] p-2.5 focus:ring-purple-400 focus:ring-2" />
-                    <button class="inline-flex items-center px-3 text-base text-white bg-[#3F51B5] hover:bg-[#4F69C5] animation-all duration-300 font-bold rounded-r-md border border-l-0 border-gray-300" onClick={() => updateUserMail()}>
+                <div className="flex mt-2 w-full">
+                    <input type="text" id="website-admin" value={updateEmail} onChange={e => handleSetUpdatedEmail(e)} className="rounded-none outline-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-[#3e9ca3] focus:border-[#3e9ca3] block flex-1 min-w-0 w-full text-sm border-[#3F51B5] p-2.5 focus:ring-purple-400 focus:ring-2" />
+                    <button className="inline-flex items-center px-3 text-base text-white bg-[#3F51B5] hover:bg-[#4F69C5] animation-all duration-300 font-bold rounded-r-md border border-l-0 border-gray-300" onClick={() => updateUserMail()}>
                         Update email
                     </button>
                 </div>
                 {showUpdateMessage && <div className='text-base font-bold mt-5'>Email successfully saved!</div>}
             </div>
             <div className='max-w-6xl my-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-                {/* <img src={details.topCardImage} alt="top Card" className='w-48 h-48 rounded-xl border-4 border-[#e2e2e2] shadow-xl' /> */}
-                <img src={details.finalCardImage} alt="final Card" className='w-48 h-48 rounded-xl border-4 border-[#e2e2e2] shadow-xl cursor-pointer' onClick={() => setIsOpenModal(true)} />
+                <img src={details.topCardImage ? details.topCardImage : "/assets/image/loading.svg"} alt="top Card" className='w-48 h-48 rounded-xl border-4 border-[#e2e2e2] shadow-xl' />
+                <img src={details.finalCardImage ? details.finalCardImage : "/assets/image/loading.svg"} alt="final Card" className='w-48 h-48 rounded-xl border-4 border-[#e2e2e2] shadow-xl cursor-pointer' onClick={() => setIsOpenModal(true)} />
             </div>
             <div className="cropModal">
                 <PureModal

@@ -13,10 +13,11 @@ export default function DeckPage() {
     const [currentEmail, setCurrentEmail] = useState("")
     const [details, setDetails] = useState([])
     const [progress, setProgress] = useState(false)
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         (async () => {
+            setIsLoading(true)
             const cookie = decodeURIComponent(document.cookie)
             const cookieData = cookie.split(';')
             for (let i = 0; i < cookieData.length; i++) {
@@ -24,13 +25,14 @@ export default function DeckPage() {
                     const startId = cookieData[i].lastIndexOf("userId=")
                     const email = cookieData[i].slice((7 + startId), cookieData[i].length + 1)
                     setCurrentEmail(email)
-                    const detail = await axios.get(`https://agile-lake-31041.herokuapp.com/readData?yourMail=${email}`, {
-                        headers: {
-                            'content-type': 'text/json',
-                            'Access-Control-Allow-Origin': '*'
-                        }
+                    const URL = `https://agile-lake-31041.herokuapp.com/readData?yourMail=${email}`
+                    const result = await axios({
+                        method: 'get',
+                        url: URL,
+                        headers: { 'Content-Type': 'application/json' },
                     })
-                    setDetails(detail.data)
+                    setDetails(result.data)
+                    setIsLoading(false)
                 }
             }
         })()
@@ -40,18 +42,6 @@ export default function DeckPage() {
         setProgress(!progress)
     }
 
-    useEffect(() => {
-        if (details.length > 0) {
-            setIsLoading(false)
-        } else if (details.length === 0) {
-            setIsLoading(true)
-            setInterval(() => {
-                setIsLoading(false)
-            }, 3000)
-        }
-    }, [details])
-
-    console.log(currentEmail)
     return (
         <Body>
             <HeaderTitle>

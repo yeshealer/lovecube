@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import PureModal from 'react-pure-modal';
 import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,6 +8,7 @@ export default function SendMail(props) {
     const navigate = useNavigate()
 
     const [isRequired, setIsRequired] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const {
         toFirstName,
@@ -27,8 +29,6 @@ export default function SendMail(props) {
         isFinalImage
     } = props
 
-    console.log(isFinalImage)
-
     const handleSetMail = (event) => {
         const mailAddress = event.target.value
         if (mailAddress.length <= 50) {
@@ -37,18 +37,17 @@ export default function SendMail(props) {
         }
     }
 
+    console.log(topCardImage)
+
     const handleSendMail = async () => {
-        const URL = `https://agile-lake-31041.herokuapp.com/saveData?toFirstName=${toFirstName}&toLastName=${toLastName}&toNickName=${toNickName}&describe=${selectedDescribe}&fromFirstName=${fromFirstName}&fromLastName=${fromLastName}&fromNickName=${fromNickName}&inscription=${inscription}&moreMessage=${moreOption}&msgFinalCard=${ownMessage}&occasion=${occasion}&topCardImage=${topCardImage}&yourMail=${sendMail}`
-        if (sendMail.length > 0) {
-            await axios.post(URL, {
-                finalCardImage: isFinalImage
-            }, {
-                headers: {
-                    'content-type': 'text/json',
-                    'Access-Control-Allow-Origin': '*'
-                }
-            })
-        }
+        const data = { finalCardImage: isFinalImage, topCardImage: topCardImage }
+        const URL = `https://agile-lake-31041.herokuapp.com/saveData?toFirstName=${toFirstName}&toLastName=${toLastName}&toNickName=${toNickName}&describe=${selectedDescribe}&fromFirstName=${fromFirstName}&fromLastName=${fromLastName}&fromNickName=${fromNickName}&inscription=${inscription}&moreMessage=${moreOption}&msgFinalCard=${ownMessage}&occasion=${occasion}&yourMail=${sendMail}`
+        await axios({
+            method: 'post',
+            url: URL,
+            headers: { 'Content-Type': 'application/json' },
+            data: data
+        });
     }
 
     useEffect(() => {
@@ -163,10 +162,12 @@ export default function SendMail(props) {
                 </div>
 
                 <div className='flex flex-col items-center justify-center w-full'>
-                    <button type="button" class={`font-bold text-white ${!isRequired ? "bg-[#9a1f60] hover:bg-[#AA2F60] focus:ring-rose-200" : "bg-[#3e9ca3] hover:bg-[#4e9ca3] focus:ring-green-200"} focus:ring-2 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mt-10 ${isRequired && 'next-button-animation'}`} onClick={() => {
+                    <button type="button" class={`font-bold text-white ${!isRequired ? "bg-[#9a1f60] hover:bg-[#AA2F60] focus:ring-rose-200" : "bg-[#3e9ca3] hover:bg-[#4e9ca3] focus:ring-green-200"} focus:ring-2 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mt-10 ${isRequired && 'next-button-animation'}`} onClick={async () => {
                         if (sendMail.length > 0) {
                             document.cookie = `userId=${sendMail}`
-                            handleSendMail()
+                            setIsLoading(true)
+                            await handleSendMail()
+                            setIsLoading(false)
                             navigate('/decks')
                         }
                     }}>
@@ -175,6 +176,15 @@ export default function SendMail(props) {
                     </button>
                     <button className='text-[#6c757d] mt-2 hover:underline'>Continue without email</button>
                 </div>
+            </div>
+            <div className='loading-modal'>
+                <PureModal
+                    isOpen={isLoading}
+                >
+                    <div className='w-full flex justify-center items-center'>
+                        <Icon icon="line-md:loading-twotone-loop" width={70} height={70} color="white" />
+                    </div>
+                </PureModal>
             </div>
         </div>
     )
