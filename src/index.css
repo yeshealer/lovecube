@@ -29,6 +29,14 @@ code {
   justify-content: flex-start !important;
 }
 
+.cropModal .pure-modal-backdrop {
+  justify-content: center !important;
+}
+
+.cropModal .pure-modal {
+  width: 600px !important;
+}
+
 .pure-modal {
   width: 500px !important;
   animation: 500ms alternate display-show;
@@ -49,6 +57,9 @@ code {
 }
 
 @media screen and (max-width: 640px) {
+  .cropModal .pure-modal {
+    width: 350px !important;
+  }
   .pure-modal {
     width: 350px !important;
   }

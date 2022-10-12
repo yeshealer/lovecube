@@ -26,7 +26,8 @@ export default function CreateCard(props) {
     )
 
     const handleNextCreateCard = () => {
-        setTopCardImage(imageURI)
+        const blob = new Blob([imageURI], { type: 'text/plain' });
+        setTopCardImage(URL.createObjectURL(blob))
         navigate(`/create-deck/${pathname}/upload`)
     }
     return (
