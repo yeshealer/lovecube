@@ -14,7 +14,7 @@ export default function UploadImage(props) {
         occasion,
         inscription,
         selectedDescribe,
-        setIsFinalImage,
+        setFinalImage,
         moreOption
     } = props
 
@@ -49,7 +49,7 @@ export default function UploadImage(props) {
     }, [croppedAreaPixels])
 
     const handleNextUploadImage = () => {
-        setIsFinalImage(croppedImage)
+        setFinalImage(croppedImage)
         navigate(`/create-deck/${pathname}/own-msg`)
     }
 

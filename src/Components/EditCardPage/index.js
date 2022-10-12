@@ -18,6 +18,7 @@ export default function EditCardPage() {
     const [details, setDetails] = useState([])
     const [isOpen, setIsOpenModal] = useState(false)
     const [showUpdateMessage, setShowUpdateMessage] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         (async () => {
@@ -45,9 +46,18 @@ export default function EditCardPage() {
     }
 
     const updateFinalImage = async () => {
-        await axios.post(`https://agile-lake-31041.herokuapp.com/updateFinalImage?uniqueId=${uniqueId}&finalCardImage=${croppedImage}`)
+        setIsLoading(true)
+        const data = { finalCardImage: croppedImage }
+        const URL = `https://agile-lake-31041.herokuapp.com/updateFinalImage?uniqueId=${uniqueId}`
+        await axios({
+            method: 'post',
+            url: URL,
+            headers: { 'Content-Type': 'application/json' },
+            data: data
+        });
         const details = await axios.get(`https://agile-lake-31041.herokuapp.com/getDataById?uniqueId=${uniqueId}`)
         setDetails(details.data[0])
+        setIsLoading(false)
         setIsOpenModal(false)
     }
 
@@ -108,7 +118,7 @@ export default function EditCardPage() {
             </div>
             <div className='max-w-6xl my-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                 <img src={details.topCardImage ? details.topCardImage : "/assets/image/loading.svg"} alt="top Card" className='w-48 h-48 rounded-xl border-4 border-[#e2e2e2] shadow-xl' />
-                <img src={details.finalCardImage ? details.finalCardImage : "/assets/image/loading.svg"} alt="final Card" className='w-48 h-48 rounded-xl border-4 border-[#e2e2e2] shadow-xl cursor-pointer' onClick={() => setIsOpenModal(true)} />
+                {details.isFinalImage === 'true' && <img src={details.finalCardImage ? details.finalCardImage : "/assets/image/loading.svg"} alt="final Card" className='w-48 h-48 rounded-xl border-4 border-[#e2e2e2] shadow-xl cursor-pointer' onClick={() => setIsOpenModal(true)} />}
             </div>
             <div className="cropModal">
                 <PureModal
@@ -143,8 +153,8 @@ export default function EditCardPage() {
                                 </button>}
                                 {imageList.map((image, index) => {
                                     return (
-                                        <>
-                                            <div key={index} className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] bg-gray-100 relative flex items-center justify-center mt-5 rounded-2xl">
+                                        <div key={index}>
+                                            <div className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] bg-gray-100 relative flex items-center justify-center mt-5 rounded-2xl">
                                                 {!isCropped ? <Cropper
                                                     image={image['data_url']}
                                                     crop={crop}
@@ -171,12 +181,21 @@ export default function EditCardPage() {
                                                     </button>
                                                 </div>
                                             )}
-                                        </>
+                                        </div>
                                     )
                                 })}
                             </div>
                         )}
                     </ImageUploading>
+                </PureModal>
+            </div>
+            <div className='loading-modal'>
+                <PureModal
+                    isOpen={isLoading}
+                >
+                    <div className='w-full flex justify-center items-center'>
+                        <Icon icon="line-md:loading-twotone-loop" width={70} height={70} color="white" />
+                    </div>
                 </PureModal>
             </div>
         </Body>

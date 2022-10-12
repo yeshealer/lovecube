@@ -35,7 +35,7 @@ export default function CreateDeckPage() {
     const [inscription, setInscription] = useState('')
     const [moreOption, setMoreOption] = useState('')
     const [selectedDescribe, setSelectedDescribe] = useState([])
-    const [isFinalImage, setIsFinalImage] = useState('')
+    const [finalImage, setFinalImage] = useState('')
     const [ownMessage, setOwnMessage] = useState('')
     const [sendMail, setSendMail] = useState('')
     return (
@@ -99,7 +99,7 @@ export default function CreateDeckPage() {
                     inscription={inscription}
                     pathname={mainPathname}
                     selectedDescribe={selectedDescribe}
-                    setIsFinalImage={setIsFinalImage}
+                    setFinalImage={setFinalImage}
                     moreOption={moreOption}
                 />}
                 {subPathname === 'own-msg' && <OwnMsg
@@ -142,7 +142,7 @@ export default function CreateDeckPage() {
                     setSendMail={setSendMail}
                     sendMail={sendMail}
                     pathname={mainPathname}
-                    isFinalImage={isFinalImage}
+                    finalImage={finalImage}
                 />}
             </Content>
         </CreateDeckBody>

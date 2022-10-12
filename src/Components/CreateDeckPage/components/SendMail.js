@@ -26,7 +26,7 @@ export default function SendMail(props) {
         sendMail,
         topCardImage,
         ownMessage,
-        isFinalImage
+        finalImage
     } = props
 
     const handleSetMail = (event) => {
@@ -37,11 +37,10 @@ export default function SendMail(props) {
         }
     }
 
-    console.log(topCardImage)
-
     const handleSendMail = async () => {
-        const data = { finalCardImage: isFinalImage, topCardImage: topCardImage }
-        const URL = `https://agile-lake-31041.herokuapp.com/saveData?toFirstName=${toFirstName}&toLastName=${toLastName}&toNickName=${toNickName}&describe=${selectedDescribe}&fromFirstName=${fromFirstName}&fromLastName=${fromLastName}&fromNickName=${fromNickName}&inscription=${inscription}&moreMessage=${moreOption}&msgFinalCard=${ownMessage}&occasion=${occasion}&yourMail=${sendMail}`
+        const isFinalImage = finalImage.length > 0 ? true : false
+        const data = { finalCardImage: finalImage, topCardImage: topCardImage }
+        const URL = `https://agile-lake-31041.herokuapp.com/saveData?toFirstName=${toFirstName}&toLastName=${toLastName}&toNickName=${toNickName}&describe=${selectedDescribe}&fromFirstName=${fromFirstName}&fromLastName=${fromLastName}&fromNickName=${fromNickName}&inscription=${inscription}&moreMessage=${moreOption}&msgFinalCard=${ownMessage}&occasion=${occasion}&yourMail=${sendMail}&isFinalImage=${isFinalImage}`
         await axios({
             method: 'post',
             url: URL,

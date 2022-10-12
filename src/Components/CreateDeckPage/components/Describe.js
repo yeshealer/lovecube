@@ -64,7 +64,7 @@ export default function Describe(props) {
             <div className='text-center'>
                 {DescribeList.map(describe => {
                     return (
-                        <button className={`border text-base px-2 py-1.5 rounded-md mr-2 mb-2 ${selectedButton.includes(describe) ? 'bg-[#9a1f60] text-white border-[#9a1f60]' : 'bg-white text-[#808080] border-[#808080]'} focus:ring-4 focus:ring-rose-300 hover:border-[#9a1f60]`} onClick={() => handleClickButton(describe)}>{describe}</button>
+                        <button key={describe} className={`border text-base px-2 py-1.5 rounded-md mr-2 mb-2 ${selectedButton.includes(describe) ? 'bg-[#9a1f60] text-white border-[#9a1f60]' : 'bg-white text-[#808080] border-[#808080]'} focus:ring-4 focus:ring-rose-300 hover:border-[#9a1f60]`} onClick={() => handleClickButton(describe)}>{describe}</button>
                     )
                 })}
             </div>
