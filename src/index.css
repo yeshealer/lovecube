@@ -62,6 +62,40 @@ code {
   content: "\eb75";
 }
 
+.underline-effect {
+  display: inline-block;
+  position: relative;
+}
+
+.underline-effect::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: gray;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.underline-effect:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.glow-text {
+  background: -webkit-linear-gradient(left, #9a1f60, #3e9ca3, #9a1f60);
+  background-size: 1600px 200px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-duration: 3s;
+  animation-name: animationgradienttitle;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
 @media screen and (max-width: 1024px) {
   .pure-modal {
     display: block;
@@ -85,6 +119,15 @@ code {
   to {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+@keyframes animationgradienttitle {
+  0% {
+    background-position: 0 1600px;
+  }
+  100% {
+    background-position: 1600px 0;
   }
 }
 

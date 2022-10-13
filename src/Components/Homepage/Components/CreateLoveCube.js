@@ -12,7 +12,12 @@ export default function CreateLoveCube() {
             <Stock className="grid grid-cols-1 sm:grid-cols-2 max-w-[700px] gap-4 mt-8">
                 {ButtonGroup.map((button) => {
                     return (
-                        <CreateButton key={button} onClick={() => navigate(`/create-deck/${button.toLowerCase()}/to-who`)}>{button}</CreateButton>
+                        <button key={button} onClick={() => navigate(`/create-deck/${button.toLowerCase()}/to-who`)} class="text-[#3e9ca3] w-[300px] sm:w-[270px] md:w-[350px] hover:text-white relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+                            <span class="w-full h-full bg-gradient-to-br from-[#3e9ca3] via-[#60bb0e] to-[#00ffc4] group-hover:from-[#3eeca3] group-hover:via-[#60bb0e] group-hover:to-[#00ffc4] absolute"></span>
+                            <span class="relative w-full py-3 transition-all ease-out bg-white rounded-md group-hover:bg-opacity-0 duration-400">
+                                <span class="relative">{button}</span>
+                            </span>
+                        </button>
                     )
                 })}
             </Stock>

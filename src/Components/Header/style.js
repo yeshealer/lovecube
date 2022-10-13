@@ -17,7 +17,7 @@ export const LogoTitle = wrapn('p')`
 `
 
 export const Navbar = wrapn('button')`
-    lg:ml-7 font-bold text-md my-2 lg:my-0 lg:text-sm text-stone-500 w-full lg:w-auto
+    lg:ml-7 font-bold text-md my-2 lg:my-0 lg:text-sm text-stone-500 w-full lg:w-auto underline-effect
 `
 
 export const CreateBtn = wrapn('button')`
