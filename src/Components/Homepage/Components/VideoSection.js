@@ -63,7 +63,7 @@ export default function VideoSection() {
                     </Flex>
                 </Stock>
                 <div className='w-full h-full flex justify-center rounded-2xl'>
-                    <video playsInline autoPlay muted loop className='rounded-2xl w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] xl:w-[540px] xl:h-[540px]' poster='assets/image/preload.png' ref={vidRef}>
+                    <video playsInline autoPlay muted loop className='rounded-2xl w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] xl:w-[540px] xl:h-[540px] shadow-xl' poster='assets/image/preload.png' ref={vidRef}>
                         <source src="https://lovecube-com.s3.us-east-2.amazonaws.com/static/lovecube/videos/lc_stop_motion.webm" type="video/webm" />
                         <source src="https://lovecube-com.s3.us-east-2.amazonaws.com/static/lovecube/videos/lc_stop_motion.mp4" type="video/mp4" />
                     </video>

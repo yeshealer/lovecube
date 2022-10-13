@@ -6,7 +6,7 @@ export const Body = wrapn('div')`
 `
 
 export const PromotionContent = wrapn('div')`
-    w-full flex flex-col justify-center items-center bg-[#9a1f60] text-white text-base sm:text-lg font-semibold p-1 cursor-pointer
+    w-full flex flex-col justify-center items-center bg-[#9a1f60] text-white text-base sm:text-lg font-semibold p-1 cursor-pointer shadow-xl
 `
 
 export const VideoSectionContent = wrapn('div')`
