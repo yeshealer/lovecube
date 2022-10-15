@@ -26,7 +26,7 @@ export const UsersReviewContent = wrapn('div')`
 `
 
 export const Title = wrapn('p')`
-    text-4xl xl:text-5xl tracking-wide text-white font-500 glow-text font-medium
+    text-4xl xl:text-5xl tracking-wide text-white font-500 glow-text font-semibold
 `
 
 export const CreateButton = wrapn('button')`
