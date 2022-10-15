@@ -98,19 +98,11 @@ code {
 
 .gradient-btn,
 .gradient-btn2 {
-  line-height: 100px;
   color: rgba(255, 255, 255, 0.9);
   background: linear-gradient(-45deg, #ffa63d, #ff3d77, #338aff, #3cf0c5);
   background-size: 600%;
   animation: anime 16s linear infinite;
-}
-
-.gradient-btn2 {
-  position: absolute;
-  margin-top: -70px;
-  z-index: -1;
-  filter: blur(30px);
-  opacity: 0.8;
+  position: relative;
 }
 
 @media screen and (max-width: 1024px) {

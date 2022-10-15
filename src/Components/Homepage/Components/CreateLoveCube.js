@@ -18,9 +18,9 @@ export default function CreateLoveCube() {
                         //         <span class="relative">{button}</span>
                         //     </span>
                         // </button>
-                        <button key={button} onClick={() => navigate(`/create-deck/${button.toLowerCase()}/to-who`)} class="gradient-btn w-[300px] sm:w-[270px] md:w-[350px] text-xl py-3 rounded-full text-center border">
+                        <button key={button} onClick={() => navigate(`/create-deck/${button.toLowerCase()}/to-who`)} class="gradient-btn w-[300px] sm:w-[270px] md:w-[350px] text-xl py-3 rounded-full text-center">
                             {button}
-                            <button class="gradient-btn2 w-[300px] sm:w-[270px] md:w-[350px]" />
+                            <div className='absolute top-0 rounded-full left-[0.9%] w-[98.6%] h-[93%] top-[3.5%] bg-white hover:opacity-0 opacity-1 animation-all duration-200 text-black flex items-center justify-center'>{button}</div>
                         </button>
                     )
                 })}
