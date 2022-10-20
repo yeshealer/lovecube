@@ -72,3 +72,11 @@ export const PromotionDetailContent = wrapn('div')`
 export const WarningContent = wrapn('div')`
     w-full flex justify-center flex-col items-center shadow-2xl
 `
+
+export const NewMainSectionContent = wrapn('div')`
+    w-full h-[600px] md:h-[650px] lg:h-[700px] xl:h-[800px] 2xl:h-[950px] relative overflow-hidden new-home-bg
+`
+
+export const NewCreateGroupContent = wrapn('div')`
+    p-10 md:p-16 bg-[#f3f4f6] w-full flex justify-center
+`

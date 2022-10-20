@@ -219,3 +219,16 @@ export const LastCardMessage = [
         description: "You will always be enough for me."
     }
 ]
+
+export const NewCreateButtonGroup = [
+    { name: 'Father', effect: '' },
+    { name: 'Brother', effect: 'border-effect-1' },
+    { name: 'Sister', effect: '' },
+    { name: 'FRIEND', effect: 'border-effect-2' },
+    { name: 'Mother', effect: '' },
+    { name: 'Son', effect: 'border-effect-3' },
+    { name: 'Daughter', effect: '' },
+    { name: 'Wife', effect: 'border-effect-4' },
+    { name: 'Grand parents', effect: '' },
+    { name: 'Partner', effect: 'border-effect-5' }
+]

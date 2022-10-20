@@ -9,7 +9,9 @@ import {
     BoxImageCarousel,
     LoveCubeGuide,
     Payment,
-    Warning
+    Warning,
+    NewMainSection,
+    NewCreateGroup
 } from './Components'
 import { Body } from "./style";
 import "react-multi-carousel/lib/styles.css";
@@ -22,8 +24,10 @@ const Homepage = () => {
             </Helmet>
             <Body>
                 <Promotion />
-                <VideoSection />
-                <CreateLoveCube />
+                <NewMainSection />
+                <NewCreateGroup />
+                {/* <VideoSection /> */}
+                {/* <CreateLoveCube /> */}
                 <ImageCarousel />
                 <UsersReview />
                 <BoxImageCarousel />
